@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Col, Icon, Button } from 'antd';
-import Combine from './Combine';
+import Cards from './Cards';
 import DetailPage from './DetailPage';
 import Sentence from './Sentence';
+const FakeData = require('./../../Server');
 
 class SummaryPage extends Component {
   constructor(props) {
@@ -14,29 +15,29 @@ class SummaryPage extends Component {
 
   changeDisplay = () => {
     const { display } = this.state;
-
     this.setState({
       display: !display,
     });
-    console.log(this.state.display);
   };
 
   render() {
     const { display } = this.state;
+    console.log(this.props);
     return (
       <div>
         <br />
         <br />
         <br />
         <br />
+
         <Col span={9} />
         <Icon
           type="calculator"
           style={{ fontSize: '200px' }}
           theme="outlined"
         />
-        <Sentence />
-        <Combine />
+        <Sentence Data={FakeData} />
+        <Cards Data={FakeData} />
         <Button type="primary" block size="large" onClick={this.changeDisplay}>
           Primary
         </Button>

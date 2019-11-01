@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Sentence = () => {
+const Sentence = props => {
   return (
     <div
       style={{
@@ -15,7 +15,7 @@ const Sentence = () => {
           fontSize: 'xx-large',
         }}
       >
-        (자그레브)로의 여행 예상 예산은 (100)만원 입니다 !
+        (자그레브)로의 여행 예상 예산은 {props.Data.estimate.total}만원 입니다 !
       </span>
     </div>
   );

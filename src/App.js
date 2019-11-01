@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import { Button, Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
-
+import { Link } from 'react-router-dom';
 import citys from './menu/city';
 import keyWords from './menu/key-words';
 import ajax from './ajax/ajax';
-import './App.css';
-
+import SummaryPage from './Components/SummaryPage/index';
+import Loading from './Loading';
 const { Option } = Select;
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.image = [];
-    for (let i = 1; i < 5; i++) {
+    for (let i = 0; i < 1; i++) {
       this.image.push(
-        <div>
-          <img src={require(`./images/${i}.jpeg`)} />
+        <div style={{ textAlign: 'center' }}>
+          <img
+            src={require(`./Assets/main/photo-1563311164-4753e106d009.jpeg`)}
+            width={'100%'}
+            height={'100%'}
+          />
         </div>,
       );
     }
@@ -57,8 +61,7 @@ export default class App extends Component {
 
   onChange2 = e => this.setState({ stop: e.target.value });
 
-  handleClicke = () => {
-    console.log(this.state);
+  handleClick = () => {
     //   const { cityName, cityCode, dapartureDate, arrivalDate, stop, gender, ageRange, keyWord} = this.state;
     //   delete this.state[datas];
     //   cityName&&cityCode&&dapartureDate&&arrivalDate&&stop&&gender&&ageRange&&keyWord
@@ -72,9 +75,23 @@ export default class App extends Component {
     this.keyWords = keyWords;
   }
   render() {
+    const carouselStyle = {
+      height: '400px',
+      lineHeight: '160px',
+      background: './Assets/main/croydeBay.jpeg',
+      overflow: 'hidden',
+    };
+    const fullStyle = {
+      width: '100%',
+      marginBottom: '8px',
+    };
+    const halfStyle = {
+      width: '50%',
+      marginBottom: '8px',
+    };
     return (
       <div>
-        <Carousel className="images" autoplay>
+        <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}
         </Carousel>
         ,
@@ -83,23 +100,58 @@ export default class App extends Component {
           options={citys}
           onChange={this.onChangeCity}
           size="large"
+          style={fullStyle}
           placeholder="Please select city"
         />
         <br />
         <DatePicker
-          className="half"
+          style={halfStyle}
           onChange={(date, dateString) =>
             this.onChangeDate(date, dateString, 'dapartureDate')
           }
         />
         <DatePicker
-          className="half wh"
+          style={halfStyle}
           onChange={(date, dateString) =>
             this.onChangeDate(date, dateString, 'arrivalDate')
           }
         />
+        <Radio.Group
+          style={halfStyle}
+          onChange={this.onChange1}
+          defaultValue="male"
+          size="large"
+          buttonStyle="solid"
+        >
+          <Radio.Button style={halfStyle} value="male">
+            남
+          </Radio.Button>
+          <Radio.Button style={halfStyle} value="female">
+            여
+          </Radio.Button>
+        </Radio.Group>
+        <Radio.Group
+          onChange={this.onChange2}
+          style={halfStyle}
+          defaultValue="0"
+          size="large"
+          buttonStyle="solid"
+        >
+          <Radio.Button
+            style={{
+              width: '50%',
+              marginBottom: '8px',
+            }}
+            value="0"
+          >
+            직항
+          </Radio.Button>
+          <Radio.Button style={halfStyle} value="1">
+            경유
+          </Radio.Button>
+        </Radio.Group>
         <Select
-          className="wh"
+          style={halfStyle}
           onChange={this.onChangeAge}
           size="large"
           placeholder="Please select 연령대"
@@ -110,36 +162,8 @@ export default class App extends Component {
           <Option value="40">40대</Option>
           <Option value="50">50대</Option>
         </Select>
-        <Radio.Group
-          className="half"
-          onChange={this.onChange1}
-          defaultValue="male"
-          size="large"
-          buttonStyle="solid"
-        >
-          <Radio.Button className="half" value="male">
-            남
-          </Radio.Button>
-          <Radio.Button className="half" value="female">
-            여
-          </Radio.Button>
-        </Radio.Group>
-        <Radio.Group
-          onChange={this.onChange2}
-          className="half wh"
-          defaultValue="0"
-          size="large"
-          buttonStyle="solid"
-        >
-          <Radio.Button className="half" value="0">
-            직항
-          </Radio.Button>
-          <Radio.Button className="half" value="1">
-            경유
-          </Radio.Button>
-        </Radio.Group>
         <Cascader
-          className="wh"
+          style={halfStyle}
           options={keyWords}
           onChange={this.onChangeKey}
           size="large"
@@ -147,12 +171,24 @@ export default class App extends Component {
         />
         <br />
         <Button
-          style={{ height: '50px' }}
+          style={{
+            height: '50px',
+            backgroundColor: '#364d79',
+            border: 'none',
+            textDecorationColor: '#fff',
+            fontSize: '20px',
+          }}
           block
-          type="primary"
-          onClick={this.handleClicke}
+          type="ghost"
+          onClick={this.handleClick}
         >
-          견&nbsp;&nbsp;적&nbsp;&nbsp;확&nbsp;&nbsp;인
+          <Link
+            to={{ pathname: '/summary' }}
+            onClick={this.handleClick}
+            state={this.state}
+          >
+            calculate
+          </Link>
         </Button>
       </div>
     );
