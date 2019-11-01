@@ -10,9 +10,10 @@ img {
 
 .wh {
   width: 100%;
-  margin-bottom: 3px;
+  margin-bottom: 8px;
 }
 
-.marginTop {
-  margin-top: -20px;
+.half {
+  width: 50%;
+  text-align: center;
 }
