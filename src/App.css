@@ -1,0 +1,18 @@
+.header {
+  height: 80px;
+  background-color: greenyellow;
+  margin: 10px, auto;
+}
+
+img {
+  width: 100%;
+}
+
+.wh {
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+.marginTop {
+  margin-top: -20px;
+}
