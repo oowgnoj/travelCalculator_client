@@ -22,7 +22,7 @@ class SummaryPage extends Component {
 
   render() {
     const { display } = this.state;
-    console.log(this.props);
+    console.log(this.props.location);
     return (
       <div>
         <br />
@@ -42,7 +42,7 @@ class SummaryPage extends Component {
           Primary
         </Button>
         <div style={{ display: display ? 'block' : 'none' }}>
-          <DetailPage style={{ display: 'block' }} />
+          <DetailPage style={{ display: 'block' }} Data={FakeData} />
         </div>
       </div>
     );

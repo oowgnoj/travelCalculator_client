@@ -6,31 +6,37 @@ const hotelIcon = require('../../../src/Assets/icon/hotel.png');
 const menuIcon = require('../../../src/Assets/icon/menu.png');
 
 function Cards(props) {
-  var flight = props.Data.details.flight;
-  var userDestinationCity =
-    flight[0].itineraries[0].segments[0].arrival['city'];
-  var estimate = props.Data.estimate;
-  var isTransfer = props.Data.details.flight;
+  var flight = props.Data.details.flight[0];
   var hotel = props.Data.details.hotel;
-
   var restaurant = props.Data.details.restaurant;
+  var estimate = props.Data.estimate;
 
-  console.dir(estimate);
-  console.dir(flight);
-  console.dir(hotel);
-  console.dir(restaurant);
+  //flight information
+  var getArrival = flight.itineraries[0].segments.length;
+  var duration = flight.itineraries[0].duration;
+  var departure = flight.itineraries[0].segments[0].daparture.city;
+  var departure_date = flight.itineraries[0].segments[0].daparture.date;
+  var arrival = flight.itineraries[0].segments[getArrival - 1].arrival.city;
+  var layover =
+    flight.itineraries[0].stop === 0
+      ? 'non-stop-flight'
+      : `# of layover is ${props.flight.itineraries[0].stop}`;
+  var price = flight.price;
+
+  // check if props fine
+
   const listData = [
     {
       title: 'flight',
       description: `average price for 100 flights to destination. We would recommend you to have a rough guess.`,
-      content: `Flight ticket to ${userDestinationCity} is approximately ${estimate.flight}.`,
+      content: `Flight ticket to ${arrival} is approximately ${estimate.flight}.`,
       image: airplaneIcon,
     },
     {
       title: 'hotel',
       description:
         'Realtime Hotel price for your destination, offering information only.',
-      content: `average one night hotel price of ${userDestinationCity} is ${Math.floor(
+      content: `average one night hotel price of ${arrival} is ${Math.floor(
         estimate.hotel / 3,
       )}. in your case, {we need night here} *${estimate.hotel}`,
       image: hotelIcon,

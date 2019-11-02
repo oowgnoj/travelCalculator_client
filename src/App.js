@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
 import { Button, Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
 import { Link } from 'react-router-dom';
-import citys from './menu/city';
-import keyWords from './menu/key-words';
+import citys from './Assets/menu/city';
+import keyWords from './Assets/menu/key-words';
 import ajax from './ajax/ajax';
 import SummaryPage from './Components/SummaryPage/index';
-import Loading from './Loading';
 const { Option } = Select;
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.image = [];
-    for (let i = 0; i < 1; i++) {
-      this.image.push(
-        <div style={{ textAlign: 'center' }}>
-          <img
-            src={require(`./Assets/main/photo-1563311164-4753e106d009.jpeg`)}
-            width={'100%'}
-            height={'100%'}
-          />
-        </div>,
-      );
-    }
+    this.image.push(
+      <div style={{ textAlign: 'center' }}>
+        <img
+          src={require(`./Assets/main/photo-1563311164-4753e106d009.jpeg`)}
+          width={'100%'}
+          height={'100%'}
+        />
+      </div>,
+    );
     this.state = {
       cityName: '',
       cityCode: '',
@@ -32,7 +29,7 @@ export default class App extends Component {
       gender: '',
       ageRange: '',
       keyWord: '',
-      // datas: []
+      // data: []
     };
   }
 
@@ -94,7 +91,6 @@ export default class App extends Component {
         <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}
         </Carousel>
-        ,
         <Cascader
           className="wh"
           options={citys}
@@ -183,9 +179,8 @@ export default class App extends Component {
           onClick={this.handleClick}
         >
           <Link
-            to={{ pathname: '/summary' }}
+            to={{ pathname: '/summary', state: this.state }}
             onClick={this.handleClick}
-            state={this.state}
           >
             calculate
           </Link>

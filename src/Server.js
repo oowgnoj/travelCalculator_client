@@ -3,7 +3,7 @@ const FakeData = {
     flight: 1120,
     hotel: 700,
     restaurant: 600,
-    total: this.flight + this.hotel + this.restaurant,
+    total: 350,
   },
   details: {
     flight: [
@@ -12,15 +12,15 @@ const FakeData = {
         itineraries: [
           {
             duration: '20H 10M',
-            stop: ' Number 0,1,2(0이면 직항, 1이면 경유 1회)',
+            stop: 0,
             segments: [
               {
                 daparture: {
-                  city: 'string(Seoul)',
+                  city: 'Seoul',
                   date: '2019-11-01 23:40:00',
                 },
                 arrival: {
-                  city: `Chicago`,
+                  city: `string(방콕)`,
                   date: '2019-11-02 03:00:00',
                 },
                 duration: '04H 10M',
@@ -31,7 +31,7 @@ const FakeData = {
                   date: '2019-11-02 03:00:00',
                 },
                 arrival: {
-                  city: 'string(Los Angeles)',
+                  city: 'Los Angeles',
                   date: '2019-11-02 21:00:00',
                 },
                 duration: '13H 10M',
@@ -67,7 +67,7 @@ const FakeData = {
           },
         ],
         price: 100000,
-        airline: 'string(대한항공)',
+        airline: 'Korean Air',
       },
       {
         offerid: 2,
@@ -198,19 +198,22 @@ const FakeData = {
     ],
     hotel: [
       {
-        name: 'string(호텔이름영문/영문)',
+        name: 'Ramada London Heathrow International Airport',
         photo: 'string(이미지 url)',
-        price: 200000,
+        price: 300000,
+        rating: 3,
       },
       {
-        name: 'string(호텔이름영문/영문)',
+        name: 'Intercontinental Hotel Centre of London',
         photo: 'string(이미지 url)',
-        price: 200000,
+        price: 204000,
+        rating: 3,
       },
       {
-        name: 'string(호텔이름영문/영문)',
+        name: 'I dont know ',
         photo: 'string(이미지 url)',
-        price: 200000,
+        price: 210000,
+        rating: 3,
       },
     ],
     restaurant: [
