@@ -14,7 +14,7 @@ export default class App extends Component {
     this.image.push(
       <div style={{ textAlign: 'center' }}>
         <img
-          src={require(`./Assets/main/photo-1563311164-4753e106d009.jpeg`)}
+          src={require(`./Assets/main/current.jpeg`)}
           width={'100%'}
           height={'100%'}
         />
@@ -29,7 +29,7 @@ export default class App extends Component {
       gender: '',
       ageRange: '',
       keyWord: '',
-      // data: []
+      // datas: []
     };
   }
 
@@ -75,7 +75,7 @@ export default class App extends Component {
     const carouselStyle = {
       height: '400px',
       lineHeight: '160px',
-      background: './Assets/main/croydeBay.jpeg',
+      backgroundColor: 'white',
       overflow: 'hidden',
     };
     const fullStyle = {
@@ -88,6 +88,8 @@ export default class App extends Component {
     };
     return (
       <div>
+        <br />
+        <br />
         <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}
         </Carousel>
@@ -169,9 +171,9 @@ export default class App extends Component {
         <Button
           style={{
             height: '50px',
-            backgroundColor: '#364d79',
+            backgroundColor: '#4a6999',
             border: 'none',
-            textDecorationColor: '#fff',
+            color: 'white',
             fontSize: '20px',
           }}
           block
