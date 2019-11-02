@@ -4,6 +4,7 @@ import Cards from './Cards';
 import DetailPage from './DetailPage';
 import Sentence from './Sentence';
 import { Spin } from 'antd';
+import ajax from './../../ajax/ajax.js';
 
 const FakeData = require('./../../Server');
 
@@ -16,12 +17,17 @@ class SummaryPage extends Component {
     };
   }
   componentDidMount() {
-    setTimeout(() => {
+    ajax('', this.props.loctation.state).then(res =>
       this.setState({
-        Data: [1],
-      });
-    }, 2000);
+        Data: res,
+      }).catch(err => console.log(err, 'error 발생')),
+    );
   }
+  // setTimeout(() => {
+  //   this.setState({
+  //     Data: [1],
+  //   });
+  // }, 2000);
   changeDisplay = () => {
     const { display } = this.state;
     this.setState({
@@ -52,8 +58,8 @@ class SummaryPage extends Component {
             style={{ fontSize: '200px' }}
             theme="outlined"
           />
-          <Sentence Data={FakeData} />
-          <Cards Data={FakeData} />
+          <Sentence Data={this.state.Data} />
+          <Cards Data={this.state.Data} />
           <Button
             type="primary"
             block
@@ -63,7 +69,7 @@ class SummaryPage extends Component {
             Primary
           </Button>
           <div style={{ display: display ? 'block' : 'none' }}>
-            <DetailPage style={{ display: 'block' }} Data={FakeData} />
+            <DetailPage style={{ display: 'block' }} Data={this.state.Data} />
           </div>
         </div>
       );
