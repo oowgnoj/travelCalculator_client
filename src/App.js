@@ -23,13 +23,13 @@ export default class App extends Component {
     this.state = {
       cityName: '',
       cityCode: '',
-      dapartureDate: null,
-      arrivalDate: null,
-      stop: '',
-      gender: '',
+      departureDate: '',
+      arrivalDate: '',
+      stop: '0',
+      gender: 'male',
       ageRange: '',
       keyWord: '',
-      // datas: []
+      // datas: [],
     };
   }
 
@@ -39,9 +39,9 @@ export default class App extends Component {
     });
   };
 
-  onChangeDate = (date, dapartureDate, key) => {
+  onChangeDate = (date, departureDate, key) => {
     this.setState({
-      [key]: dapartureDate,
+      [key]: departureDate,
     });
   };
 
@@ -57,15 +57,6 @@ export default class App extends Component {
   onChange1 = e => this.setState({ gender: e.target.value });
 
   onChange2 = e => this.setState({ stop: e.target.value });
-
-  handleClick = () => {
-    //   const { cityName, cityCode, dapartureDate, arrivalDate, stop, gender, ageRange, keyWord} = this.state;
-    //   delete this.state[datas];
-    //   cityName&&cityCode&&dapartureDate&&arrivalDate&&stop&&gender&&ageRange&&keyWord
-    //   ajax(url, this.state)
-    //     .then(datas => this.setState({datas}))
-    //     .catch(err => console.log(err, '격전확인에러'))
-  };
 
   componenWillMount() {
     this.citys = citys;
@@ -105,7 +96,7 @@ export default class App extends Component {
         <DatePicker
           style={halfStyle}
           onChange={(date, dateString) =>
-            this.onChangeDate(date, dateString, 'dapartureDate')
+            this.onChangeDate(date, dateString, 'departureDate')
           }
         />
         <DatePicker

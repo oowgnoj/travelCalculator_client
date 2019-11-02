@@ -32,13 +32,7 @@ function Restaurant(props) {
         renderItem={item => (
           <List.Item
             key={item.title}
-            extra={
-              <img
-                width={272}
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-              />
-            }
+            extra={<img width={272} alt="logo" src={restaurantPhoto} />}
           >
             <List.Item.Meta
               avatar={<Avatar src={item.avatar} />}

@@ -4,8 +4,7 @@ import Cards from './Cards';
 import DetailPage from './DetailPage';
 import Sentence from './Sentence';
 import { Spin } from 'antd';
-
-const FakeData = require('./../../Server');
+import ajax from './../../ajax/ajax.js';
 
 class SummaryPage extends Component {
   constructor(props) {
@@ -16,12 +15,30 @@ class SummaryPage extends Component {
     };
   }
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        Data: [1],
-      });
-    }, 2000);
+    var data = this.props.location.state;
+    let str = '?';
+
+    for (let key in data) {
+      str += key + '=' + data[key] + '&';
+    }
+    str = str.slice(0, -1);
+
+    fetch(`http://3.15.20.155:5000/calculate` + str)
+      .then(res => res.json())
+      .then(res =>
+        this.setState({
+          Data: res,
+        }),
+      )
+      .catch(err =>
+        console.log(
+          err,
+          `http://3.15.20.155:5000/calculate` + str,
+          'error 발생',
+        ),
+      );
   }
+
   changeDisplay = () => {
     const { display } = this.state;
     this.setState({
@@ -34,7 +51,7 @@ class SummaryPage extends Component {
     if (Data.length === 0) {
       return (
         <div>
-          <Spin size="large" />;
+          <Spin size="large" />;{console.log(this.state.Data)}
         </div>
       );
     } else {
@@ -52,8 +69,8 @@ class SummaryPage extends Component {
             style={{ fontSize: '200px' }}
             theme="outlined"
           />
-          <Sentence Data={FakeData} />
-          <Cards Data={FakeData} />
+          <Sentence Data={this.state.Data} />
+          <Cards Data={this.state.Data} />
           <Button
             type="primary"
             block
@@ -63,7 +80,7 @@ class SummaryPage extends Component {
             Primary
           </Button>
           <div style={{ display: display ? 'block' : 'none' }}>
-            <DetailPage style={{ display: 'block' }} Data={FakeData} />
+            <DetailPage style={{ display: 'block' }} Data={this.state.Data} />
           </div>
         </div>
       );

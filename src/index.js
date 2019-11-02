@@ -33,7 +33,7 @@ ReactDOM.render(
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-        Travel calculator ©2018 Created by human Calc
+        Travel calculator ©2019 Created by human Calc
       </Footer>
     </Layout>
   </BrowserRouter>,
