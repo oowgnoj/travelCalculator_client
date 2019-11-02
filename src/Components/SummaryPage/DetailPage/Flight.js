@@ -1,13 +1,13 @@
 import { Descriptions, Row, Col } from 'antd';
 
 import React from 'react';
-import airplane from './../../../../src/Assets/icon/airplane.png';
 
 function Flight(props) {
+  var logo = props.flight.logo.slice(0, props.flight.logo.length - 1);
   var getArrival = props.flight.itineraries[0].segments.length;
   var duration = props.flight.itineraries[0].duration;
-  var departure = props.flight.itineraries[0].segments[0].daparture.city;
-  var departure_date = props.flight.itineraries[0].segments[0].daparture.date;
+  var departure = props.flight.itineraries[0].segments[0].departure.city;
+  var departure_date = props.flight.itineraries[0].segments[0].departure.date;
   var arrival =
     props.flight.itineraries[0].segments[getArrival - 1].arrival.city;
   var layover =
@@ -15,14 +15,16 @@ function Flight(props) {
       ? 'non-stop-flight'
       : `# of layover is ${props.flight.itineraries[0].stop}`;
   var price = props.flight.price;
+  console.log(logo);
+
   return (
     <div style={{ marginBottom: '30px' }}>
       <Row>
         <Col span={4}>
-          <img src={airplane} width={100} height={100} />
+          <img src={logo} width={100} height={100} />
         </Col>
         <Col span={20}>
-          <Descriptions title={props.flight.airline}>
+          <Descriptions title={logo}>
             <Descriptions.Item label="Departure">
               {departure}{' '}
             </Descriptions.Item>

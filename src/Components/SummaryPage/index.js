@@ -6,8 +6,6 @@ import Sentence from './Sentence';
 import { Spin } from 'antd';
 import ajax from './../../ajax/ajax.js';
 
-const FakeData = require('./../../Server');
-
 class SummaryPage extends Component {
   constructor(props) {
     super(props);
@@ -17,17 +15,30 @@ class SummaryPage extends Component {
     };
   }
   componentDidMount() {
-    ajax('', this.props.loctation.state).then(res =>
-      this.setState({
-        Data: res,
-      }).catch(err => console.log(err, 'error 발생')),
-    );
+    var data = this.props.location.state;
+    let str = '?';
+
+    for (let key in data) {
+      str += key + '=' + data[key] + '&';
+    }
+    str = str.slice(0, -1);
+
+    fetch(`http://3.15.20.155:5000/calculate` + str)
+      .then(res => res.json())
+      .then(res =>
+        this.setState({
+          Data: res,
+        }),
+      )
+      .catch(err =>
+        console.log(
+          err,
+          `http://3.15.20.155:5000/calculate` + str,
+          'error 발생',
+        ),
+      );
   }
-  // setTimeout(() => {
-  //   this.setState({
-  //     Data: [1],
-  //   });
-  // }, 2000);
+
   changeDisplay = () => {
     const { display } = this.state;
     this.setState({
@@ -40,7 +51,7 @@ class SummaryPage extends Component {
     if (Data.length === 0) {
       return (
         <div>
-          <Spin size="large" />;
+          <Spin size="large" />;{console.log(this.state.Data)}
         </div>
       );
     } else {
