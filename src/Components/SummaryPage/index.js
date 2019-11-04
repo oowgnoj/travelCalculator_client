@@ -4,8 +4,7 @@ import Cards from './Cards';
 import DetailPage from './DetailPage';
 import Sentence from './Sentence';
 import { Spin } from 'antd';
-import ajax from './../../ajax/ajax.js';
-
+const pic = require('./current.jpg');
 class SummaryPage extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +50,8 @@ class SummaryPage extends Component {
     if (Data.length === 0) {
       return (
         <div>
-          <Spin size="large" />;{console.log(this.state.Data)}
+          <Spin size="large" />
+          live Data searching ....{console.log(this.state.Data)}
         </div>
       );
     } else {
@@ -64,11 +64,14 @@ class SummaryPage extends Component {
           <br />
 
           <Col span={9} />
-          <Icon
+          {/* <Icon
             type="calculator"
             style={{ fontSize: '200px' }}
             theme="outlined"
-          />
+          /> */}
+          <div id="container">
+            <img src={pic} width={'100%'}></img>
+          </div>
           <Sentence Data={this.state.Data} />
           <Cards Data={this.state.Data} />
           <Button
@@ -77,7 +80,7 @@ class SummaryPage extends Component {
             size="large"
             onClick={this.changeDisplay}
           >
-            Primary
+            detail
           </Button>
           <div style={{ display: display ? 'block' : 'none' }}>
             <DetailPage style={{ display: 'block' }} Data={this.state.Data} />

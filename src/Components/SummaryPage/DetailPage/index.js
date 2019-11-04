@@ -16,9 +16,11 @@ function DetailPage(props) {
       <br />
       <br />
       <h1 style={{ textAlign: 'center' }}>Flight</h1>
-      {flight.map(element => (
-        <Flight flight={element} />
-      ))}
+      <div>
+        {flight.map(element => (
+          <Flight flight={element} />
+        ))}
+      </div>
       <Divider />
       <h1 style={{ textAlign: 'center' }}>Hotel</h1>
       {hotel.map(element => (

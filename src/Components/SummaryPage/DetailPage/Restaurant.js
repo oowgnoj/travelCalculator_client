@@ -19,8 +19,8 @@ function Restaurant(props) {
   listData.push({
     title: `${restaurantName}`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description: `given days, ${restaurantName} is now offering you as price of $${restaurantPrice}`,
-    content: `I'm thinking giving user the rule of rating and the Restaurant rate ${restaurantRating}. ${restaurantCuisines}`,
+    description: `signiture cuision : ${restaurantCuisines}`,
+    content: `${restaurantName}의 2인 평균 비용은 ${restaurantPrice} 입니다. 'zomato'의 ${restaurantName} 평점은 ${restaurantRating}/5 입니다.`,
   });
 
   return (
@@ -32,7 +32,9 @@ function Restaurant(props) {
         renderItem={item => (
           <List.Item
             key={item.title}
-            extra={<img width={272} alt="logo" src={restaurantPhoto} />}
+            extra={
+              <img width={272} height={200} alt="logo" src={restaurantPhoto} />
+            }
           >
             <List.Item.Meta
               avatar={<Avatar src={item.avatar} />}

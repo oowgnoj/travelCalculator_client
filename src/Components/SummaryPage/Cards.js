@@ -10,6 +10,8 @@ function Cards(props) {
   var hotel = props.Data.details.hotel;
   var restaurant = props.Data.details.restaurant;
   var estimate = props.Data.estimate;
+  var day = props.Data.day;
+  var dayExtended = `${day}박 ${day + 1}일`;
 
   //flight information
   var getArrival = flight.itineraries[0].segments.length;
@@ -28,25 +30,31 @@ function Cards(props) {
   const listData = [
     {
       title: 'flight',
-      description: `average price for 100 flights to destination. We would recommend you to have a rough guess.`,
-      content: `Flight ticket to ${arrival} is approximately ${estimate.flight}.`,
+      description: `인천 국제공항에서 출발하는 최대 100개 왕복 항공권의 평균 가격 입니다.`,
+      content: `${arrival}로 가는 항공권의 평균 가격은 ₩${Math.floor(
+        estimate.flight,
+      )}원 입니다.`,
       image: airplaneIcon,
     },
     {
       title: 'hotel',
-      description:
-        'Realtime Hotel price for your destination, offering information only.',
-      content: `average one night hotel price of ${arrival} is ${Math.floor(
+      description: '주요 호텔의 객실당 1박 평균 요금 입니다.',
+      content: `${arrival}의 1박 평균 요금은  is ₩${Math.floor(
         estimate.hotel / 3,
-      )}. in your case, {we need night here} *${estimate.hotel}`,
+      )}원 입니다. ${dayExtended} 일정의 예상 숙박료는 ₩${
+        estimate.hotel
+      }원 입니다.`,
       image: hotelIcon,
     },
 
     {
       title: 'meal',
-      description: `we approximate food expenses by using restaurant index form NUMBEO
+      description: `NUMBEO 에서 제공하는 restaurant price index를 기반으로 산정한 1일 평균 식비입니다.
         `,
-      content: `your food expense is about ${estimate.restaurant}. REMEMBER, it doesn not consider special cases. Normal restaurant, bar, coffee`,
+      content: `${arrival}의 하루 식비는 ₩${
+        estimate.restaurant
+      }원 입니다. ${dayExtended} 일정의 예상 식비는 ₩${estimate.restaurant *
+        day}원 입니다.`,
       image: menuIcon,
     },
   ];
@@ -62,7 +70,13 @@ function Cards(props) {
             <List.Item
               key={item.title}
               extra={
-                <img width={100} height={100} alt="logo" src={item.image} />
+                <img
+                  width={100}
+                  height={100}
+                  opacity={0.4}
+                  alt="logo"
+                  src={item.image}
+                />
               }
             >
               <List.Item.Meta

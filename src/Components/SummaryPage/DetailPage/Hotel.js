@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Avatar, Icon } from 'antd';
-
+const icon = require('./travel.png');
 const IconText = ({ type, text }) => (
   <span>
     <Icon type={type} style={{ marginRight: 8 }} />
@@ -13,15 +13,15 @@ function Hotel(props) {
   var hotelPhoto = props.hotel.photo;
   var hotelPrice = props.hotel.price;
   var hotelRating = props.hotel.rating || '';
-
+  var hotelAddress = props.hotel.address;
+  var hotelroom = props.hotel.room;
   const listData = [];
   listData.push({
     title: `${hotelName}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description: `given days, ${hotelName} is now offering you as price of $${hotelPrice}`,
-    content: `I'm thinking giving user the rule of rating and the Hotel rate ${hotelRating}.`,
+    avatar: `${icon}`,
+    description: `Address : ${hotelAddress}`,
+    content: `${hotelName}은 ${hotelRating}성급 호텔 입니다. 해당 날짜의 ${hotelroom} 객실 숙박료는 ₩${hotelPrice} 입니다.`,
   });
-
   return (
     <div>
       <List
@@ -31,13 +31,7 @@ function Hotel(props) {
         renderItem={item => (
           <List.Item
             key={item.title}
-            extra={
-              <img
-                width={272}
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-              />
-            }
+            extra={<img width={272} height={200} alt="logo" src={hotelPhoto} />}
           >
             <List.Item.Meta
               avatar={<Avatar src={item.avatar} />}
