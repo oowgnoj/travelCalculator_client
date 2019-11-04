@@ -1,0 +1,12 @@
+.full {
+  width: 100%;
+}
+
+.half {
+  width: 50%;
+}
+
+.city {
+  text-align: center;
+  font: italic bold 50px/100px serif;
+}

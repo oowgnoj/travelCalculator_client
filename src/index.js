@@ -6,6 +6,7 @@ import Bubble from './Bubble';
 import SummaryPage from './Components/SummaryPage/index';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Trends from './Components/trends/trends';
 const { Header, Content, Footer } = Layout;
 
 ReactDOM.render(
@@ -30,13 +31,13 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={App} />
             <Route exact path="/summary" component={SummaryPage} />
-            <Route exact path="/Bubble" component={Bubble} />
+            <Route exact path="/trends" component={Trends} />
           </Switch>
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>
+      {/* <Footer style={{ textAlign: 'center' }}>
         Travel calculator ©2019 Created by human Calc
-      </Footer>
+      </Footer> */}
     </Layout>
   </BrowserRouter>,
   document.getElementById('root'),

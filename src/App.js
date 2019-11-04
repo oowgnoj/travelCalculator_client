@@ -5,6 +5,7 @@ import citys from './Assets/menu/city';
 import keyWords from './Assets/menu/key-words';
 import ajax from './ajax/ajax';
 import SummaryPage from './Components/SummaryPage/index';
+import word from './Assets/images/3.jpeg';
 const { Option } = Select;
 
 export default class App extends Component {
@@ -13,11 +14,7 @@ export default class App extends Component {
     this.image = [];
     this.image.push(
       <div style={{ textAlign: 'center' }}>
-        <img
-          src={require(`./Assets/main/current.jpeg`)}
-          width={'100%'}
-          height={'100%'}
-        />
+        <img src={word} width={'100%'} height={'100%'} />
       </div>,
     );
     this.state = {
