@@ -161,7 +161,7 @@ export default class App extends Component {
         <br />
         <Button
           style={{
-            height: '50px',
+            height: '600px',
             backgroundColor: '#4a6999',
             border: 'none',
             color: 'white',
