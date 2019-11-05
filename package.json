@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.5.2",
+    "@material-ui/icons": "^4.5.1",
     "algoliasearch": "^3.35.1",
     "antd": "^3.24.3",
     "babel-plugin-import": "^1.12.2",
     "chart.js": "^2.9.2",
+    "clsx": "^1.0.4",
     "customize-cra": "^0.8.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
@@ -17,6 +20,7 @@
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
+    "react-wordcloud": "^1.1.1",
     "request": "^2.88.0",
     "unsplash-js": "^6.0.0"
   },
