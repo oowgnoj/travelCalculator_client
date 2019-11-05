@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import { Button, Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
 import { Link } from 'react-router-dom';
+
+//component
+import MainTypo from './Components/Typography/main';
+
+//options
 import citys from './Assets/menu/city';
 import keyWords from './Assets/menu/key-words';
-import ajax from './ajax/ajax';
-import SummaryPage from './Components/SummaryPage/index';
-import word from './Assets/images/3.jpeg';
+
+//image
+import word from './Assets/main/1.jpeg';
+
+//material
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
 const { Option } = Select;
 
 export default class App extends Component {
@@ -67,7 +77,7 @@ export default class App extends Component {
       overflow: 'hidden',
     };
     const fullStyle = {
-      width: '100%',
+      width: '90%',
       marginBottom: '8px',
     };
     const halfStyle = {
@@ -76,19 +86,20 @@ export default class App extends Component {
     };
     return (
       <div>
-        <br />
-        <br />
+        <MainTypo />
         <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}
         </Carousel>
-        <Cascader
-          className="wh"
-          options={citys}
-          onChange={this.onChangeCity}
-          size="large"
-          style={fullStyle}
-          placeholder="Please select city"
-        />
+        <div style={{ textAlign: 'center' }}>
+          <Cascader
+            className="wh"
+            options={citys}
+            onChange={this.onChangeCity}
+            size="large"
+            style={fullStyle}
+            placeholder="Please select city"
+          />
+        </div>
         <br />
         <DatePicker
           style={halfStyle}
@@ -158,7 +169,7 @@ export default class App extends Component {
         <br />
         <Button
           style={{
-            height: '600px',
+            // height: '600px',
             backgroundColor: '#4a6999',
             border: 'none',
             color: 'white',
