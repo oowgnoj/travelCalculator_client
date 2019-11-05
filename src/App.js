@@ -3,7 +3,7 @@ import { Button, Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
 import { Link } from 'react-router-dom';
 
 //component
-import MainTypo from './Components/Typography/main';
+import MainTypo from './Components/Layout/Typography/main';
 
 //options
 import citys from './Assets/menu/city';
@@ -13,8 +13,6 @@ import keyWords from './Assets/menu/key-words';
 import word from './Assets/main/1.jpeg';
 
 //material
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 
 const { Option } = Select;
 
@@ -79,6 +77,7 @@ export default class App extends Component {
     const fullStyle = {
       width: '90%',
       marginBottom: '8px',
+      height: '50px',
     };
     const halfStyle = {
       width: '50%',
@@ -87,9 +86,7 @@ export default class App extends Component {
     return (
       <div>
         <MainTypo />
-        <Carousel className="images" style={carouselStyle} autoplay>
-          {this.image}
-        </Carousel>
+
         <div style={{ textAlign: 'center' }}>
           <Cascader
             className="wh"
@@ -113,6 +110,7 @@ export default class App extends Component {
             this.onChangeDate(date, dateString, 'arrivalDate')
           }
         />
+
         <Radio.Group
           style={halfStyle}
           onChange={this.onChange1}
@@ -120,10 +118,18 @@ export default class App extends Component {
           size="large"
           buttonStyle="solid"
         >
-          <Radio.Button style={halfStyle} value="male">
+          <Radio.Button
+            style={halfStyle}
+            style={{ width: '50%', display: 'inline-block' }}
+            value="male"
+          >
             남
           </Radio.Button>
-          <Radio.Button style={halfStyle} value="female">
+          <Radio.Button
+            style={halfStyle}
+            style={{ width: '50%', display: 'inline-block' }}
+            value="female"
+          >
             여
           </Radio.Button>
         </Radio.Group>
@@ -133,20 +139,7 @@ export default class App extends Component {
           defaultValue="0"
           size="large"
           buttonStyle="solid"
-        >
-          <Radio.Button
-            style={{
-              width: '50%',
-              marginBottom: '8px',
-            }}
-            value="0"
-          >
-            직항
-          </Radio.Button>
-          <Radio.Button style={halfStyle} value="1">
-            경유
-          </Radio.Button>
-        </Radio.Group>
+        ></Radio.Group>
         <Select
           style={halfStyle}
           onChange={this.onChangeAge}
@@ -182,10 +175,11 @@ export default class App extends Component {
           <Link
             to={{ pathname: '/summary', state: this.state }}
             onClick={this.handleClick}
-          >
-            calculate
-          </Link>
+          ></Link>
         </Button>
+        <Carousel className="images" style={carouselStyle} autoplay>
+          {this.image}
+        </Carousel>
       </div>
     );
   }

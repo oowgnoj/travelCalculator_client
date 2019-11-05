@@ -9,7 +9,7 @@ import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   root: {
-    width: '100vh',
+    width: '100%',
     maxWidth: 500,
   },
 });
@@ -32,11 +32,9 @@ const theme = createMuiTheme({
 });
 
 theme.typography.overline = {
-  fontSize: '10.5em',
+  fontSize: '40px',
   lineHeight: '1.3em',
-};
-theme.typography.subtitle1 = {
-  fontSize: '5em',
+  leftMargin: '10px',
 };
 
 export default function Types() {
@@ -45,18 +43,12 @@ export default function Types() {
   return (
     <div className={classes.root}>
       <MuiThemeProvider theme={theme}>
-        <Typography variant="overline" style={{ marginLeft: '30px' }}>
-          Drive
-        </Typography>
-        <br />
-        <Typography variant="overline" style={{ marginLeft: '30px' }}>
-          toward
-        </Typography>
-
-        <br />
-        <Typography variant="subtitle1" style={{ marginLeft: '30px' }}>
-          What matters to you.
-        </Typography>
+        <div style={{ textalign: 'center' }}>
+          <Typography variant="overline" display="block" gutterBottom>
+            Everything for travel{' '}
+          </Typography>{' '}
+          <br />
+        </div>
       </MuiThemeProvider>
     </div>
   );
