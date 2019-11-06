@@ -24,7 +24,11 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ background: '#fff' }} elevation={0}>
+      <AppBar
+        position="static"
+        style={{ background: 'transparent' }}
+        elevation={0}
+      >
         <Toolbar variant="dense">
           <Typography variant="button" className={classes.title}>
             News

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 //component
 import MainTypo from './Components/Layout/Typography/main';
+import SubmitButton from './Components/Layout/SubmitButton';
 
 //options
 import citys from './Assets/menu/city';
@@ -19,12 +20,6 @@ const { Option } = Select;
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.image = [];
-    this.image.push(
-      <div style={{ textAlign: 'center' }}>
-        <img src={word} width={'100%'} height={'100%'} />
-      </div>,
-    );
     this.state = {
       cityName: '',
       cityCode: '',
@@ -34,8 +29,14 @@ export default class App extends Component {
       gender: 'male',
       ageRange: '',
       keyWord: '',
-      // datas: [],
+      test: true,
     };
+    this.image = [];
+    this.image.push(
+      <div style={{ textAlign: 'center' }}>
+        <img src={word} width={'100%'} height={'100%'} />
+      </div>,
+    );
   }
 
   onChangeAge = value => {
@@ -89,7 +90,6 @@ export default class App extends Component {
     return (
       <div>
         <MainTypo />
-
         <div style={{ textAlign: 'center' }}>
           <Cascader
             className="wh"
@@ -144,23 +144,9 @@ export default class App extends Component {
           placeholder="Please select 키워드"
         />
         <br />
-        <Button
-          style={{
-            // height: '600px',
-            backgroundColor: '#4a6999',
-            border: 'none',
-            color: 'white',
-            fontSize: '20px',
-          }}
-          block
-          type="ghost"
-          onClick={this.handleClick}
-        >
-          <Link
-            to={{ pathname: '/summary', state: this.state }}
-            onClick={this.handleClick}
-          ></Link>
-        </Button>
+        <div style={{ textAlign: 'center' }}>
+          <SubmitButton></SubmitButton>
+        </div>
         <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}
         </Carousel>
