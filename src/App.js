@@ -25,11 +25,13 @@ export default class App extends Component {
       cityCode: '',
       departureDate: '',
       arrivalDate: '',
-      stop: '0',
-      gender: 'male',
+      gender: '',
       ageRange: '',
       keyWord: '',
-      test: true,
+
+      code: '',
+
+
     };
     this.image = [];
     this.image.push(
@@ -38,12 +40,6 @@ export default class App extends Component {
       </div>,
     );
   }
-
-  onChangeAge = value => {
-    this.setState({
-      ageRange: value,
-    });
-  };
 
   onChangeDate = (date, departureDate, key) => {
     this.setState({
@@ -56,19 +52,44 @@ export default class App extends Component {
     this.setState({ cityName, cityCode });
   };
 
-  onChangeKey = value => {
-    this.setState({ keyWord: value[1] });
+  onChangeAge1 = value => {
+    this.setState({
+      gender: value,
+    });
   };
 
-  onChange1 = e => this.setState({ gender: e.target.value });
+  onChangeAge2 = value => {
+    this.setState({
+      ageRange: value,
+    });
+  };
 
-  onChange2 = e => this.setState({ stop: e.target.value });
+  onChangeKey = value => {
+    const {
+      cityName,
+      cityCode,
+      departureDate,
+      arrivalDate,
+      gender,
+      ageRange,
+      keyWord,
+    } = this.state;
+    cityName &&
+      cityCode &&
+      departureDate &&
+      arrivalDate &&
+      gender &&
+      ageRange &&
+      keyWord &&
+      this.setState({ keyWord: value[1], test: false });
+  };
 
   componenWillMount() {
     this.citys = citys;
     this.keyWords = keyWords;
   }
   render() {
+    const { test } = this.state;
     const carouselStyle = {
       height: '400px',
       lineHeight: '160px',
@@ -120,13 +141,13 @@ export default class App extends Component {
           size="large"
           placeholder="Please select 성별"
         >
-          <Option value="male">남</Option>
-          <Option value="female">여</Option>
+          <Option value="2">남</Option>
+          <Option value="1">여</Option>
         </Select>
 
         <Select
           style={halfStyle}
-          onChange={this.onChangeAge}
+          onChange={this.onChangeAge2}
           size="large"
           placeholder="Please select 연령대"
         >
@@ -144,9 +165,22 @@ export default class App extends Component {
           placeholder="Please select 키워드"
         />
         <br />
-        <div style={{ textAlign: 'center' }}>
-          <SubmitButton></SubmitButton>
-        </div>
+
+        <Button
+          onChange={this.changeButton}
+          disabled={test}
+          style={{
+            // height: '600px',
+            backgroundColor: '#4a6999',
+            border: 'none',
+            color: 'white',
+            fontSize: '20px',
+          }}
+          block
+          type="ghost"
+        >
+          <Link to={{ pathname: '/summary', state: this.state }}></Link>
+        </Button>
         <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}
         </Carousel>
