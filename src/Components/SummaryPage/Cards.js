@@ -22,7 +22,7 @@ function Cards(props) {
   var layover =
     flight.itineraries[0].stop === 0
       ? 'non-stop-flight'
-      : `# of layover is ${props.flight.itineraries[0].stop}`;
+      : `# of layover is ${flight.itineraries[0].stop}`;
   var price = flight.price;
 
   // check if props fine

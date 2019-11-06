@@ -18,13 +18,18 @@ class SummaryPage extends Component {
   }
   componentDidMount() {
     var data = this.props.location.state;
+    data.code =
+      Number(data.gender) + Number(data.ageRange) + Number(data.keyWord) + '';
+    delete data.gender;
+    delete data.ageRange;
+    delete data.keyWord;
+    delete data.test;
     let str = '?';
-
     for (let key in data) {
       str += key + '=' + data[key] + '&';
     }
     str = str.slice(0, -1);
-
+    console.log(str);
     fetch(`http://3.15.20.155:5000/calculate` + str)
       .then(res => res.json())
       .then(res =>
@@ -66,7 +71,7 @@ class SummaryPage extends Component {
           <br />
           <Col span={9} />
           <div id="container">
-            <img src={pic} width={'100%'}></img>
+            <img src={Data.cityphoto} width={'100%'}></img>
           </div>
           <Sentence Data={this.state.Data} />
           <Cards Data={this.state.Data} />
