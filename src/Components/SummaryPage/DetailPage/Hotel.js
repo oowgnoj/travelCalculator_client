@@ -1,6 +1,5 @@
 import React from 'react';
 import { List, Avatar, Icon } from 'antd';
-const icon = require('./travel.png');
 const IconText = ({ type, text }) => (
   <span>
     <Icon type={type} style={{ marginRight: 8 }} />
@@ -18,7 +17,6 @@ function Hotel(props) {
   const listData = [];
   listData.push({
     title: `${hotelName}`,
-    avatar: `${icon}`,
     description: `Address : ${hotelAddress}`,
     content: `${hotelName}은 ${hotelRating}성급 호텔 입니다. 해당 날짜의 ${hotelroom} 객실 숙박료는 ₩${hotelPrice} 입니다.`,
   });

@@ -75,9 +75,12 @@ export default class App extends Component {
       overflow: 'hidden',
     };
     const fullStyle = {
+      width: '100%',
+      marginBottom: '8px',
+    };
+    const cityStyle = {
       width: '90%',
       marginBottom: '8px',
-      height: '50px',
     };
     const halfStyle = {
       width: '50%',
@@ -93,7 +96,7 @@ export default class App extends Component {
             options={citys}
             onChange={this.onChangeCity}
             size="large"
-            style={fullStyle}
+            style={cityStyle}
             placeholder="Please select city"
           />
         </div>
@@ -111,35 +114,16 @@ export default class App extends Component {
           }
         />
 
-        <Radio.Group
+        <Select
           style={halfStyle}
-          onChange={this.onChange1}
-          defaultValue="male"
+          onChange={this.onChangeAge1}
           size="large"
-          buttonStyle="solid"
+          placeholder="Please select 성별"
         >
-          <Radio.Button
-            style={halfStyle}
-            style={{ width: '50%', display: 'inline-block' }}
-            value="male"
-          >
-            남
-          </Radio.Button>
-          <Radio.Button
-            style={halfStyle}
-            style={{ width: '50%', display: 'inline-block' }}
-            value="female"
-          >
-            여
-          </Radio.Button>
-        </Radio.Group>
-        <Radio.Group
-          onChange={this.onChange2}
-          style={halfStyle}
-          defaultValue="0"
-          size="large"
-          buttonStyle="solid"
-        ></Radio.Group>
+          <Option value="male">남</Option>
+          <Option value="female">여</Option>
+        </Select>
+
         <Select
           style={halfStyle}
           onChange={this.onChangeAge}
@@ -153,7 +137,7 @@ export default class App extends Component {
           <Option value="50">50대</Option>
         </Select>
         <Cascader
-          style={halfStyle}
+          style={fullStyle}
           options={keyWords}
           onChange={this.onChangeKey}
           size="large"

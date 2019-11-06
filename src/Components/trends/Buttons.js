@@ -6,17 +6,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import NavigationIcon from '@material-ui/icons/Navigation';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import Wordcloud from './Wordcloud';
 
 const keywordIndex = [
   'aurora',
-  'historic',
-  'restaurant',
+  'historical place',
+  'good place',
   'culture',
   'massage',
   'beach',
   'hiking',
-  'fleemarket',
+  'flea market',
   'outlet',
+  'shopping',
   'surfing',
   'camping',
   'hotel',
@@ -39,7 +41,7 @@ export default function Buttons() {
   const [age, setAge] = React.useState('');
   const [gender, setGender] = React.useState('');
   const [keyWord, setkeyWord] = React.useState('');
-
+  const [showWordcloud, setShowing] = React.useState('');
   //react hooks
 
   const ChangeGender = event => {
@@ -51,16 +53,19 @@ export default function Buttons() {
   const ChangeKeyword = event => {
     setkeyWord(Number(event.target.value) || '');
   };
+  const changeCloud = obj => {
+    setShowing(obj);
+  };
 
   const fetchInformation = () => {
+    console.log('here');
     var index = Number(keyWord) / 100 - 1;
     var attraction = keywordIndex[index];
     var data = {
       code: Number(keyWord) + Number(age) + Number(gender),
       attraction: attraction,
     };
-    // console.log(keyWord, age, gender);
-    // console.log(keywordIndex[index]);
+
     let str = '?';
     for (const key in data) {
       str += key + '=' + data[key] + '&';
@@ -68,24 +73,29 @@ export default function Buttons() {
     str = str.slice(0, -1);
     fetch('http://3.15.20.155:5000/trends' + str)
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => console.log(res))
+      .then(res => changeCloud(res));
   };
 
-  return (
-    <div>
-      {console.log(keyWord, age, gender)}
-      <TrendsButton ChangeKeyword={ChangeKeyword} />
-      <div style={{ textAlign: 'center' }}>
-        <PersonalButton ChangeAge={ChangeAge} ChangeGender={ChangeGender} />
+  if (showWordcloud === '') {
+    return (
+      <div>
+        {console.log(keyWord, age, gender)}
+        <TrendsButton ChangeKeyword={ChangeKeyword} />
+        <div style={{ textAlign: 'center' }}>
+          <PersonalButton ChangeAge={ChangeAge} ChangeGender={ChangeGender} />
 
-        <Button
-          variant="contained"
-          className={classes.button}
-          onClick={fetchInformation}
-        >
-          확인
-        </Button>
+          <Button
+            variant="contained"
+            className={classes.button}
+            onClick={fetchInformation}
+          >
+            확인
+          </Button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <Wordcloud data={showWordcloud} />;
+  }
 }

@@ -7,7 +7,7 @@ import SummaryPage from './Components/SummaryPage/index';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Bar from './Components/Layout/MenuBar';
 import Trends from './Components/Trends';
-const { Header, Content, Footer } = Layout;
+const { Footer } = Layout;
 
 ReactDOM.render(
   <BrowserRouter>
@@ -16,7 +16,7 @@ ReactDOM.render(
       <Route exact path="/" component={App} />
       <Route exact path="/summary" component={SummaryPage} />
       <Route exact path="/Trends" component={Trends} />
-      <Route exact path="/Trends/:detail" component={Wordcloud} />
+      {/* <Route exact path="/Trends/:detail" component={Wordcloud} /> */}
     </Switch>
     <Footer style={{ textAlign: 'center' }}>
       Travel calculator ©2019 Created by human Calc

@@ -1,98 +1,30 @@
 export default [
   {
-    text: 'museum',
-    value: 10, //count
+    text: '박물관',
+    value: 1, //count
   },
   {
-    text: 'point_of_interest',
-    value: 10,
+    text: '볼거리',
+    value: 1,
   },
   {
-    text: 'establishment',
-    value: 10,
+    text: '나이키',
+    value: 2,
   },
   {
-    text: 'tourist_attraction',
-    value: 10,
+    text: '아울렛',
+    value: 2,
   },
   {
-    text: 'health',
-    value: 10,
+    text: '유적지',
+    value: 3,
   },
   {
-    text: 'premise',
-    value: 20,
+    text: '레스토랑',
+    value: 4,
   },
   {
-    text: 'museum',
-    value: 20,
-  },
-  {
-    text: 'point_of_interest',
-    value: 20,
-  },
-  {
-    text: 'establishment',
-    value: 20,
-  },
-  {
-    text: 'tourist_attraction',
-    value: 20,
-  },
-  {
-    text: 'health',
-    value: 20,
-  },
-  {
-    text: 'premise',
-    value: 20,
-  },
-  {
-    text: 'museum',
-    value: 20,
-  },
-  {
-    text: 'point_of_interest',
-    value: 20,
-  },
-  {
-    text: 'establishment',
-    value: 20,
-  },
-  {
-    text: 'tourist_attraction',
-    value: 20,
-  },
-  {
-    text: 'health',
-    value: 20,
-  },
-  {
-    text: 'premise',
-    value: 20,
-  },
-  {
-    text: 'museum',
-    value: 20,
-  },
-  {
-    text: 'point_of_interest',
-    value: 20,
-  },
-  {
-    text: 'establishment',
-    value: 20,
-  },
-  {
-    text: 'tourist_attraction',
-    value: 20,
-  },
-  {
-    text: 'health',
-    value: 20,
-  },
-  {
-    text: 'premise',
-    value: 30,
+    text: '박물관',
+    value: 5,
   },
 ];
