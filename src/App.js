@@ -3,7 +3,7 @@ import { Button, Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
 import { Link } from 'react-router-dom';
 
 //component
-import MainTypo from './Components/Typography/main';
+import MainTypo from './Components/Layout/Typography/main';
 
 //options
 import citys from './Assets/menu/city';
@@ -13,8 +13,6 @@ import keyWords from './Assets/menu/key-words';
 import word from './Assets/main/1.jpeg';
 
 //material
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 
 const { Option } = Select;
 
@@ -77,6 +75,10 @@ export default class App extends Component {
       overflow: 'hidden',
     };
     const fullStyle = {
+      width: '100%',
+      marginBottom: '8px',
+    };
+    const cityStyle = {
       width: '90%',
       marginBottom: '8px',
     };
@@ -87,16 +89,14 @@ export default class App extends Component {
     return (
       <div>
         <MainTypo />
-        <Carousel className="images" style={carouselStyle} autoplay>
-          {this.image}
-        </Carousel>
+
         <div style={{ textAlign: 'center' }}>
           <Cascader
             className="wh"
             options={citys}
             onChange={this.onChangeCity}
             size="large"
-            style={fullStyle}
+            style={cityStyle}
             placeholder="Please select city"
           />
         </div>
@@ -113,40 +113,17 @@ export default class App extends Component {
             this.onChangeDate(date, dateString, 'arrivalDate')
           }
         />
-        <Radio.Group
+
+        <Select
           style={halfStyle}
-          onChange={this.onChange1}
-          defaultValue="male"
+          onChange={this.onChangeAge1}
           size="large"
-          buttonStyle="solid"
+          placeholder="Please select 성별"
         >
-          <Radio.Button style={halfStyle} value="male">
-            남
-          </Radio.Button>
-          <Radio.Button style={halfStyle} value="female">
-            여
-          </Radio.Button>
-        </Radio.Group>
-        <Radio.Group
-          onChange={this.onChange2}
-          style={halfStyle}
-          defaultValue="0"
-          size="large"
-          buttonStyle="solid"
-        >
-          <Radio.Button
-            style={{
-              width: '50%',
-              marginBottom: '8px',
-            }}
-            value="0"
-          >
-            직항
-          </Radio.Button>
-          <Radio.Button style={halfStyle} value="1">
-            경유
-          </Radio.Button>
-        </Radio.Group>
+          <Option value="male">남</Option>
+          <Option value="female">여</Option>
+        </Select>
+
         <Select
           style={halfStyle}
           onChange={this.onChangeAge}
@@ -160,7 +137,7 @@ export default class App extends Component {
           <Option value="50">50대</Option>
         </Select>
         <Cascader
-          style={halfStyle}
+          style={fullStyle}
           options={keyWords}
           onChange={this.onChangeKey}
           size="large"
@@ -182,10 +159,11 @@ export default class App extends Component {
           <Link
             to={{ pathname: '/summary', state: this.state }}
             onClick={this.handleClick}
-          >
-            calculate
-          </Link>
+          ></Link>
         </Button>
+        <Carousel className="images" style={carouselStyle} autoplay>
+          {this.image}
+        </Carousel>
       </div>
     );
   }

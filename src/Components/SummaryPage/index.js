@@ -4,7 +4,10 @@ import Cards from './Cards';
 import DetailPage from './DetailPage';
 import Sentence from './Sentence';
 import { Spin } from 'antd';
-const pic = require('./current.jpg');
+// import Loading from '../../Components/Layout/loadingz';
+import loading from './../../Assets/images/loading.gif';
+
+const pic = require('./../../Assets/main/current.jpg');
 class SummaryPage extends Component {
   constructor(props) {
     super(props);
@@ -50,8 +53,7 @@ class SummaryPage extends Component {
     if (Data.length === 0) {
       return (
         <div>
-          <Spin size="large" />
-          live Data searching ....{console.log(this.state.Data)}
+          <img src={loading} style={{ width: '100%' }} />
         </div>
       );
     } else {
@@ -62,13 +64,7 @@ class SummaryPage extends Component {
           <br />
           <br />
           <br />
-
           <Col span={9} />
-          {/* <Icon
-            type="calculator"
-            style={{ fontSize: '200px' }}
-            theme="outlined"
-          /> */}
           <div id="container">
             <img src={pic} width={'100%'}></img>
           </div>
