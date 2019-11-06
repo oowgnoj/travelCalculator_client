@@ -36,13 +36,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Buttons() {
+export default function Buttons(props) {
   const classes = useStyles();
   const [age, setAge] = React.useState('');
   const [gender, setGender] = React.useState('');
   const [keyWord, setkeyWord] = React.useState('');
   const [showWordcloud, setShowing] = React.useState('');
-  //react hooks
 
   const ChangeGender = event => {
     setGender(Number(event.target.value) || '');
@@ -65,7 +64,6 @@ export default function Buttons() {
       code: Number(keyWord) + Number(age) + Number(gender),
       attraction: attraction,
     };
-
     let str = '?';
     for (const key in data) {
       str += key + '=' + data[key] + '&';
@@ -73,8 +71,11 @@ export default function Buttons() {
     str = str.slice(0, -1);
     fetch('http://3.15.20.155:5000/trends' + str)
       .then(res => res.json())
-      .then(res => console.log(res))
-      .then(res => changeCloud(res));
+      .then(res => changeCloud(res))
+      .then(res => {
+        console.log(res);
+        props.controlBackground();
+      });
   };
 
   if (showWordcloud === '') {

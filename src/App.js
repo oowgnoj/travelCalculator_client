@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 //component
 import MainTypo from './Components/Layout/Typography/main';
+import SubmitButton from './Components/Layout/SubmitButton';
 
 //options
 import citys from './Assets/menu/city';
@@ -19,12 +20,6 @@ const { Option } = Select;
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.image = [];
-    this.image.push(
-      <div style={{ textAlign: 'center' }}>
-        <img src={word} width={'100%'} height={'100%'} />
-      </div>,
-    );
     this.state = {
       cityName: '',
       cityCode: '',
@@ -33,9 +28,17 @@ export default class App extends Component {
       gender: '',
       ageRange: '',
       keyWord: '',
+
       code: '',
-      test: true,
+
+
     };
+    this.image = [];
+    this.image.push(
+      <div style={{ textAlign: 'center' }}>
+        <img src={word} width={'100%'} height={'100%'} />
+      </div>,
+    );
   }
 
   onChangeDate = (date, departureDate, key) => {
@@ -162,6 +165,7 @@ export default class App extends Component {
           placeholder="Please select 키워드"
         />
         <br />
+
         <Button
           onChange={this.changeButton}
           disabled={test}
