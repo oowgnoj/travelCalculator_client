@@ -29,7 +29,9 @@ export default class App extends Component {
       ageRange: '',
       keyWord: '',
       code: '',
+
       recommendation: '',
+
     };
     this.image = [];
     this.image.push(
@@ -79,7 +81,10 @@ export default class App extends Component {
   };
 
   onChangeKey = value => {
-    this.setState({ keyWord: value[1], test: false });
+
+
+    this.setState({ keyWord: value[1] });
+
   };
 
   componenWillMount() {
@@ -87,7 +92,29 @@ export default class App extends Component {
     this.keyWords = keyWords;
   }
   render() {
+
     const { test } = this.state;
+
+    const {
+      cityName,
+      cityCode,
+      departureDate,
+      arrivalDate,
+      gender,
+      ageRange,
+      keyWord,
+    } = this.state;
+    let test =
+      cityName &&
+      cityCode &&
+      departureDate &&
+      arrivalDate &&
+      gender &&
+      ageRange &&
+      keyWord
+        ? false
+        : true;
+
     const carouselStyle = {
       height: '400px',
       lineHeight: '160px',
@@ -107,7 +134,7 @@ export default class App extends Component {
       marginBottom: '8px',
     };
     return (
-      <div>
+      <div style={{ padding: '20px' }}>
         <MainTypo />
         <div style={{ textAlign: 'center' }}>
           <Cascader
@@ -165,7 +192,10 @@ export default class App extends Component {
         <br />
         <Button
           style={{
+
             backgroundColor: '#455a64',
+
+
             color: 'white',
             fontSize: '17px',
             alignItems: 'center',
