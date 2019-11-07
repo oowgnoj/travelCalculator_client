@@ -17,7 +17,7 @@ ReactDOM.render(
     <Switch>
       <Route exact path="/" component={App} />
       <Route exact path="/summary" component={SummaryPage} />
-      <Route exact path="/Trends" component={Trends} />
+      <Route exact path="/trends" component={Trends} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
       {/* <Route exact path="/Trends/:detail" component={Wordcloud} /> */}
