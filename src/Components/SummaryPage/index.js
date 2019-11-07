@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Col, Icon, Button } from 'antd';
+import { Col, Row, Icon, Button } from 'antd';
 import Cards from './Cards';
 import DetailPage from './DetailPage';
 import Sentence from './Sentence';
-import { Spin } from 'antd';
-// import Loading from '../../Components/Layout/loadingz';
-import loading from './../../Assets/images/loading.gif';
+import Loading from '../../Components/Layout/loading/loading';
 
 const pic = require('./../../Assets/main/current.jpg');
 class SummaryPage extends Component {
@@ -13,6 +11,8 @@ class SummaryPage extends Component {
     super(props);
     this.state = {
       display: false,
+      displayUserData: false,
+      redirect: false,
       Data: [],
     };
   }
@@ -29,7 +29,7 @@ class SummaryPage extends Component {
       str += key + '=' + data[key] + '&';
     }
     str = str.slice(0, -1);
-    console.log(str);
+
     fetch(`http://3.15.20.155:5000/calculate` + str)
       .then(res => res.json())
       .then(res =>
@@ -38,18 +38,16 @@ class SummaryPage extends Component {
         }),
       )
       .catch(err =>
-        console.log(
-          err,
-          `http://3.15.20.155:5000/calculate` + str,
-          'error 발생',
-        ),
+        this.setState({
+          redirect: true,
+        }),
       );
   }
 
-  changeDisplay = () => {
+  changeToHand = () => {
     const { display } = this.state;
     this.setState({
-      display: !display,
+      display: true,
     });
   };
 
@@ -58,13 +56,13 @@ class SummaryPage extends Component {
     if (Data.length === 0) {
       return (
         <div>
-          <img src={loading} style={{ width: '100%' }} />
+          <Loading />
         </div>
       );
     } else {
       const { display } = this.state;
       return (
-        <div>
+        <div style={{ padding: '20px' }}>
           <br />
           <br />
           <br />
@@ -75,12 +73,7 @@ class SummaryPage extends Component {
           </div>
           <Sentence Data={this.state.Data} />
           <Cards Data={this.state.Data} />
-          <Button
-            type="primary"
-            block
-            size="large"
-            onClick={this.changeDisplay}
-          >
+          <Button type="primary" block size="large" onClick={this.changeToHand}>
             detail
           </Button>
           <div style={{ display: display ? 'block' : 'none' }}>

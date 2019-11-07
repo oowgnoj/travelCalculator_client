@@ -57,7 +57,6 @@ export default function Buttons(props) {
   };
 
   const fetchInformation = () => {
-    console.log('here');
     var index = Number(keyWord) / 100 - 1;
     var attraction = keywordIndex[index];
     var data = {
@@ -71,9 +70,9 @@ export default function Buttons(props) {
     str = str.slice(0, -1);
     fetch('http://3.15.20.155:5000/trends' + str)
       .then(res => res.json())
-      .then(res => changeCloud(res))
+      .then(res => res)
       .then(res => {
-        console.log(res);
+        changeCloud(res);
         props.controlBackground();
       });
   };
@@ -81,7 +80,6 @@ export default function Buttons(props) {
   if (showWordcloud === '') {
     return (
       <div>
-        {console.log(keyWord, age, gender)}
         <TrendsButton ChangeKeyword={ChangeKeyword} />
         <div style={{ textAlign: 'center' }}>
           <PersonalButton ChangeAge={ChangeAge} ChangeGender={ChangeGender} />

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Button, Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
 import { Link } from 'react-router-dom';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import Typography from '@material-ui/core/Typography';
 
 //component
 import MainTypo from './Components/Layout/Typography/main';
-import SubmitButton from './Components/Layout/SubmitButton';
-
 //options
 import citys from './Assets/menu/city';
 import keyWords from './Assets/menu/key-words';
@@ -30,8 +30,6 @@ export default class App extends Component {
       keyWord: '',
 
       code: '',
-
-
     };
     this.image = [];
     this.image.push(
@@ -65,23 +63,7 @@ export default class App extends Component {
   };
 
   onChangeKey = value => {
-    const {
-      cityName,
-      cityCode,
-      departureDate,
-      arrivalDate,
-      gender,
-      ageRange,
-      keyWord,
-    } = this.state;
-    cityName &&
-      cityCode &&
-      departureDate &&
-      arrivalDate &&
-      gender &&
-      ageRange &&
-      keyWord &&
-      this.setState({ keyWord: value[1], test: false });
+    this.setState({ keyWord: value[1], test: false });
   };
 
   componenWillMount() {
@@ -167,19 +149,19 @@ export default class App extends Component {
         <br />
 
         <Button
-          onChange={this.changeButton}
-          disabled={test}
           style={{
-            // height: '600px',
-            backgroundColor: '#4a6999',
-            border: 'none',
+            backgroundColor: '#455a64',
             color: 'white',
-            fontSize: '20px',
+            fontSize: '17px',
+            alignItems: 'center',
+            borderColor: '#455a64',
+            height: '55px',
           }}
           block
-          type="ghost"
         >
-          <Link to={{ pathname: '/summary', state: this.state }}></Link>
+          <Link to={{ pathname: '/summary', state: this.state }}>
+            <FlightTakeoffIcon fontSize="Large"></FlightTakeoffIcon>
+          </Link>
         </Button>
         <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}

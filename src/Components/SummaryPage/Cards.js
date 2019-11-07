@@ -19,10 +19,10 @@ function Cards(props) {
   var departure = flight.itineraries[0].segments[0].departure.city;
   var departure_date = flight.itineraries[0].segments[0].departure.date;
   var arrival = flight.itineraries[0].segments[getArrival - 1].arrival.city;
-  var layover =
-    flight.itineraries[0].stop === 0
-      ? 'non-stop-flight'
-      : `# of layover is ${flight.itineraries[0].stop}`;
+  // var layover =
+  //   flight.itineraries[0].stop === 0
+  //     ? 'non-stop-flight'
+  //     : `# of layover is ${flight.itineraries[0].stop}`;
   var price = flight.price;
 
   // check if props fine
