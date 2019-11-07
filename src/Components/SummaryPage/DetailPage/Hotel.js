@@ -29,7 +29,7 @@ function Hotel(props) {
         renderItem={item => (
           <List.Item
             key={item.title}
-            extra={<img width={272} height={200} alt="logo" src={hotelPhoto} />}
+            extra={<img width={300} height={200} alt="logo" src={hotelPhoto} />}
           >
             <List.Item.Meta
               avatar={<Avatar src={item.avatar} />}

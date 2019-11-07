@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import img from './../../../Assets/images/loading.jpeg';
-
+import Bar from './loadingbar';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -55,6 +55,7 @@ export default function RandomUserData() {
             갑니다.
           </Typography>
         </Paper>
+        <Bar />
         <Grid item xs={3}></Grid>
       </Grid>
     </div>

@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Buttons from './Buttons';
 import { Cascader } from 'antd';
 import Wordcloud from './Wordcloud';
-import words from './Data';
+import Data from './Data';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -18,10 +18,12 @@ export default function Trends() {
       width: '60%',
     },
   }));
-  const [Background, setBackground] = React.useState(true);
+
+  const [Background, setBackground] = React.useState('');
   const classes = useStyles();
-  const controlBackground = () => {
-    setBackground(!Background);
+
+  const controlBackground = res => {
+    setBackground(res);
   };
 
   const onBackground = {
@@ -34,16 +36,7 @@ export default function Trends() {
     filter: 'alpha(opacity=30)',
   };
 
-  const onWordCloud = {
-    backgroundImage:
-      'url(https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    backgroundPosition: ' ',
-    filter: 'alpha(opacity=30)',
-  };
-
-  if (Background) {
+  if (Background === '') {
     return (
       <div>
         <Grid
@@ -75,7 +68,8 @@ export default function Trends() {
   } else {
     return (
       <div>
-        <Wordcloud />
+        {console.log(Background)}
+        <Wordcloud words={Background} />
       </div>
     );
   }

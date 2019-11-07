@@ -5,7 +5,6 @@ import DetailPage from './DetailPage';
 import Sentence from './Sentence';
 import Loading from '../../Components/Layout/loading/loading';
 
-const pic = require('./../../Assets/main/current.jpg');
 class SummaryPage extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +46,7 @@ class SummaryPage extends Component {
   changeToHand = () => {
     const { display } = this.state;
     this.setState({
-      display: true,
+      display: !display,
     });
   };
 
@@ -63,8 +62,6 @@ class SummaryPage extends Component {
       const { display } = this.state;
       return (
         <div style={{ padding: '20px' }}>
-          <br />
-          <br />
           <br />
           <br />
           <Col span={9} />

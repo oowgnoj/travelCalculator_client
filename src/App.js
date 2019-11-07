@@ -28,8 +28,8 @@ export default class App extends Component {
       gender: '',
       ageRange: '',
       keyWord: '',
-
       code: '',
+      recommendation: '',
     };
     this.image = [];
     this.image.push(
@@ -37,6 +37,22 @@ export default class App extends Component {
         <img src={word} width={'100%'} height={'100%'} />
       </div>,
     );
+  }
+
+  componentDidMount() {
+    fetch(`http://3.15.20.155:5000/loading`)
+      .then(res => res.json())
+      .then(res => console.log('doing'))
+      .then(res =>
+        this.setState({
+          recommendation: res,
+        }),
+      )
+      .catch(err =>
+        this.setState({
+          redirect: true,
+        }),
+      );
   }
 
   onChangeDate = (date, departureDate, key) => {
@@ -147,7 +163,6 @@ export default class App extends Component {
           placeholder="Please select 키워드"
         />
         <br />
-
         <Button
           style={{
             backgroundColor: '#455a64',

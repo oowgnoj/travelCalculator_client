@@ -1,6 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import handGif from './../../../Assets/images/loading.gif';
 import RandomUserData from './randomUserData';
+import { makeStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import LoadingBar from './loadingbar';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 class Loading extends Component {
   constructor(props) {
@@ -30,6 +42,7 @@ class Loading extends Component {
       return (
         <div>
           <RandomUserData />
+          <LoadingBar />
         </div>
       );
     }

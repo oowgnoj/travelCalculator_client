@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -17,7 +17,9 @@ export default function Types() {
       <Typography
         variant="overline"
         display="block"
-        style={{ fontSize: '30px', marginLeft: '10px' }}
+        style={{ fontSize: '30px', marginLeft: '30px', color: 'black' }}
+        component={Link}
+        to="/trends"
         gutterBottom
       >
         out your door <br />

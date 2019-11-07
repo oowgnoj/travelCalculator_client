@@ -3,6 +3,16 @@ import Flight from './Flight';
 import Hotel from './Hotel';
 import Restaurant from './Restaurant';
 import { Divider } from 'antd';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  h6: {
+    width: '100%',
+    maxWidth: 500,
+    textAlign: 'center',
+  },
+});
 
 function DetailPage(props) {
   var flight = props.Data.details.flight;
@@ -15,20 +25,26 @@ function DetailPage(props) {
       <br />
       <br />
       <br />
-      <h1 style={{ textAlign: 'center' }}>Flight</h1>
+      <Typography variant="h6" gutterBottom>
+        Flight
+      </Typography>{' '}
       <div>
         {flight.map(element => (
           <Flight flight={element} />
         ))}
       </div>
       <Divider />
-      <h1 style={{ textAlign: 'center' }}>Hotel</h1>
+      <Typography variant="h6" gutterBottom>
+        Hotel
+      </Typography>
       {hotel.map(element => (
         <Hotel hotel={element} />
       ))}{' '}
       <Divider />
       <br />
-      <h1 style={{ textAlign: 'center' }}>Restaurant</h1>
+      <Typography variant="h6" gutterBottom>
+        Restaurant
+      </Typography>{' '}
       {restaurant.map(element => (
         <Restaurant restaurant={element} />
       ))}{' '}

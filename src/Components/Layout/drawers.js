@@ -11,11 +11,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import User from './drawers_user';
 import CardTravelIcon from '@material-ui/icons/CardTravel';
 import { Link } from 'react-router-dom';
-
+import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -50,6 +50,18 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
+        <ListItem button key="calculate" component={Link} to="/">
+          <ListItemIcon>
+            <AirplanemodeActiveIcon fontSize="medium" />
+          </ListItemIcon>
+          <ListItemText primary="calculate" />
+        </ListItem>
+        <ListItem button key="Trends" component={Link} to="/trends">
+          <ListItemIcon>
+            <TrendingUpIcon fontSize="medium" />
+          </ListItemIcon>
+          <ListItemText primary="trends" />
+        </ListItem>
         <ListItem button key="About" component={Link} to="/about">
           <ListItemIcon>
             <CardTravelIcon fontSize="medium" />

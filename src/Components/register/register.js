@@ -94,31 +94,6 @@ class NormalLoginForm extends Component {
             여
           </Radio.Button>
         </Radio.Group>
-
-        {/* <Select
-
-style={halfStyle}
-
-onChange={this.onChangeAge}
-
-size="large"
-
-placeholder="Please select 연령대"
-
->
-
-<Option value="10">10대</Option>
-
-<Option value="20">20대</Option>
-
-<Option value="30">30대</Option>
-
-<Option value="40">40대</Option>
-
-<Option value="50">50대</Option>
-
-</Select> */}
-
         <Cascader
           options={keyWords}
           onChange={this.onChangeKey}

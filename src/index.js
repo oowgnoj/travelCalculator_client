@@ -31,17 +31,17 @@ ReactDOM.render(
       <Route exact path="/register" component={Register} />
       <Route exact path="/about" component={About} />
     </Switch>
-    <Footer
-      style={{
-        textAlign: 'center',
-        position: 'absolute',
-        bottom: '0',
-        fontSize: '12px',
-        width: '100%',
-      }}
-    >
-      Travel calculator ©2019 Created by human Calc :)
-    </Footer>
+    <div style={{ width: 'auto' }}>
+      <Footer
+        style={{
+          textAlign: 'center',
+          fontSize: '12px',
+          minHeight: '100%',
+        }}
+      >
+        Travel calculator ©2019 Created by human Calc :)
+      </Footer>
+    </div>
   </BrowserRouter>,
   document.getElementById('root'),
 );

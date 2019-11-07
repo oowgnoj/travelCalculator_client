@@ -15,12 +15,9 @@ export default function PaperSheet() {
   return (
     <Paper className={classes.root}>
       <Typography variant="h5" component="h3">
-        This is a sheet of paper.
+        안녕하세요 human calculator 입니다.
       </Typography>
-      <Typography component="p">
-        Paper can be used to build surface or other elements for your
-        application.
-      </Typography>
+      <Typography component="p"> soyoon, kyungjoo, chunbum, jongwoo</Typography>
     </Paper>
   );
 }

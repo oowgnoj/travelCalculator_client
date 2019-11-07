@@ -70,10 +70,8 @@ export default function Buttons(props) {
     str = str.slice(0, -1);
     fetch('http://3.15.20.155:5000/trends' + str)
       .then(res => res.json())
-      .then(res => res)
       .then(res => {
-        changeCloud(res);
-        props.controlBackground();
+        props.controlBackground(res);
       });
   };
 
@@ -83,7 +81,6 @@ export default function Buttons(props) {
         <TrendsButton ChangeKeyword={ChangeKeyword} />
         <div style={{ textAlign: 'center' }}>
           <PersonalButton ChangeAge={ChangeAge} ChangeGender={ChangeGender} />
-
           <Button
             variant="contained"
             className={classes.button}
@@ -95,6 +92,6 @@ export default function Buttons(props) {
       </div>
     );
   } else {
-    return <Wordcloud data={showWordcloud} />;
+    return <Wordcloud wordcloud={showWordcloud} />;
   }
 }
