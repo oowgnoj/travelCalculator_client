@@ -28,10 +28,7 @@ export default class App extends Component {
       gender: '',
       ageRange: '',
       keyWord: '',
-
       code: '',
-
-
     };
     this.image = [];
     this.image.push(
@@ -65,6 +62,14 @@ export default class App extends Component {
   };
 
   onChangeKey = value => {
+    this.setState({ keyWord: value[1] });
+  };
+
+  componenWillMount() {
+    this.citys = citys;
+    this.keyWords = keyWords;
+  }
+  render() {
     const {
       cityName,
       cityCode,
@@ -74,22 +79,16 @@ export default class App extends Component {
       ageRange,
       keyWord,
     } = this.state;
-    cityName &&
+    let test =
+      cityName &&
       cityCode &&
       departureDate &&
       arrivalDate &&
       gender &&
       ageRange &&
-      keyWord &&
-      this.setState({ keyWord: value[1], test: false });
-  };
-
-  componenWillMount() {
-    this.citys = citys;
-    this.keyWords = keyWords;
-  }
-  render() {
-    const { test } = this.state;
+      keyWord
+        ? false
+        : true;
     const carouselStyle = {
       height: '400px',
       lineHeight: '160px',
@@ -109,7 +108,7 @@ export default class App extends Component {
       marginBottom: '8px',
     };
     return (
-      <div>
+      <div style={{ padding: '20px' }}>
         <MainTypo />
         <div style={{ textAlign: 'center' }}>
           <Cascader
@@ -170,7 +169,7 @@ export default class App extends Component {
           onChange={this.changeButton}
           disabled={test}
           style={{
-            // height: '600px',
+            marginBottom: '8px',
             backgroundColor: '#4a6999',
             border: 'none',
             color: 'white',
@@ -179,7 +178,7 @@ export default class App extends Component {
           block
           type="ghost"
         >
-          <Link to={{ pathname: '/summary', state: this.state }}></Link>
+          <Link to={{ pathname: '/summary', state: this.state }}>OK</Link>
         </Button>
         <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}

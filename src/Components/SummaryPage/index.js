@@ -23,7 +23,6 @@ class SummaryPage extends Component {
     delete data.gender;
     delete data.ageRange;
     delete data.keyWord;
-    delete data.test;
     let str = '?';
     for (let key in data) {
       str += key + '=' + data[key] + '&';
