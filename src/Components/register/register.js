@@ -66,6 +66,63 @@ class NormalLoginForm extends Component {
     const { keyword, age, gender } = this.state;
     let test = keyword && age && gender ? false : true;
     return (
+      <Form onSubmit={this.handleSubmit} className="login-form">
+        <Form.Item>
+          {getFieldDecorator('username', {
+            rules: [{ required: true, message: 'Please input your username!' }],
+          })(
+            <Input
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="Username"
+            />,
+          )}
+        </Form.Item>
+
+        <Form.Item>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Please input your Password!' }],
+          })(
+            <Input
+              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              type="password"
+              placeholder="Password"
+            />,
+          )}
+        </Form.Item>
+
+        <Form.Item>
+          {getFieldDecorator('password2', {
+            rules: [{ required: true, message: 'Please input your Password!' }],
+          })(
+            <Input
+              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              type="password"
+              placeholder="Password2"
+            />,
+          )}
+        </Form.Item>
+
+        <Radio.Group
+          className="half"
+          onChange={this.onChange1}
+          defaultValue="male"
+          size="large"
+          buttonStyle="solid"
+        >
+          <Radio.Button className="half" value="male">
+            남
+          </Radio.Button>
+
+          <Radio.Button className="half" value="female">
+            여
+          </Radio.Button>
+        </Radio.Group>
+        <Cascader
+          options={keyWords}
+          onChange={this.onChangeKey}
+          size="large"
+          placeholder="Please select 키워드"
+
       <div>
         <Icon
           style={{ fontSize: '150px', marginLeft: '110px' }}

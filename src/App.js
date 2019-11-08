@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Button, Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
 import { Link } from 'react-router-dom';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import Typography from '@material-ui/core/Typography';
 
 //component
 import MainTypo from './Components/Layout/Typography/main';
-import SubmitButton from './Components/Layout/SubmitButton';
-
 //options
 import citys from './Assets/menu/city';
 import keyWords from './Assets/menu/key-words';
@@ -29,6 +29,9 @@ export default class App extends Component {
       ageRange: '',
       keyWord: '',
       code: '',
+
+      recommendation: '',
+
     };
     this.image = [];
     this.image.push(
@@ -36,6 +39,22 @@ export default class App extends Component {
         <img src={word} width={'100%'} height={'100%'} />
       </div>,
     );
+  }
+
+  componentDidMount() {
+    fetch(`http://3.15.20.155:5000/loading`)
+      .then(res => res.json())
+      .then(res => console.log('doing'))
+      .then(res =>
+        this.setState({
+          recommendation: res,
+        }),
+      )
+      .catch(err =>
+        this.setState({
+          redirect: true,
+        }),
+      );
   }
 
   onChangeDate = (date, departureDate, key) => {
@@ -62,7 +81,10 @@ export default class App extends Component {
   };
 
   onChangeKey = value => {
+
+
     this.setState({ keyWord: value[1] });
+
   };
 
   componenWillMount() {
@@ -70,6 +92,9 @@ export default class App extends Component {
     this.keyWords = keyWords;
   }
   render() {
+
+    const { test } = this.state;
+
     const {
       cityName,
       cityCode,
@@ -89,6 +114,7 @@ export default class App extends Component {
       keyWord
         ? false
         : true;
+
     const carouselStyle = {
       height: '400px',
       lineHeight: '160px',
@@ -164,21 +190,23 @@ export default class App extends Component {
           placeholder="Please select 키워드"
         />
         <br />
-
         <Button
-          onChange={this.changeButton}
-          disabled={test}
           style={{
-            marginBottom: '8px',
-            backgroundColor: '#4a6999',
-            border: 'none',
+
+            backgroundColor: '#455a64',
+
+
             color: 'white',
-            fontSize: '20px',
+            fontSize: '17px',
+            alignItems: 'center',
+            borderColor: '#455a64',
+            height: '55px',
           }}
           block
-          type="ghost"
         >
-          <Link to={{ pathname: '/summary', state: this.state }}>OK</Link>
+          <Link to={{ pathname: '/summary', state: this.state }}>
+            <FlightTakeoffIcon fontSize="Large"></FlightTakeoffIcon>
+          </Link>
         </Button>
         <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}

@@ -24,8 +24,6 @@ export default function OutlinedButtons() {
         style={{ width: '100%' }}
         component={Link}
         to="/summary"
-        // state={this.state}
-        // onChange={stateCheck}
         disabled={true}
       >
         <FlightTakeoffIcon color="blue" />
