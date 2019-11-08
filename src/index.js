@@ -5,7 +5,7 @@ import App from './App';
 import SummaryPage from './Components/SummaryPage/index';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Bar from './Components/Layout/MenuBar';
-import Trends from './Components/Trends';
+import Trends from './Components/trends';
 import Login from './Components/login/login';
 import Register from './Components/register/register';
 import About from './Components/Layout/about';
