@@ -1,11 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Buttons from './Buttons';
-import { Cascader } from 'antd';
 import Wordcloud from './Wordcloud';
-import Data from './Data';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+import keyword from '../../Assets/menu/keyword';
 
 export default function Trends() {
   const useStyles = makeStyles(theme => ({
@@ -20,12 +19,16 @@ export default function Trends() {
   }));
 
   const [Background, setBackground] = React.useState('');
+  const [message, setMessage] = React.useState([]);
   const classes = useStyles();
 
   const controlBackground = res => {
     setBackground(res);
   };
 
+  const controlMessage = mes => {
+    setMessage(mes);
+  };
   const onBackground = {
     minHeight: '100vh',
     backgroundImage:
@@ -59,7 +62,10 @@ export default function Trends() {
                 filter: 'alpha(opacity=80)',
               }}
             >
-              <Buttons controlBackground={controlBackground}></Buttons>
+              <Buttons
+                controlBackground={controlBackground}
+                controlMessage={controlMessage}
+              ></Buttons>
             </Paper>
           </Grid>
         </Grid>
@@ -68,7 +74,27 @@ export default function Trends() {
   } else {
     return (
       <div>
-        {console.log(Background)}
+        <img
+          src={Background.cityphoto}
+          style={{ opacity: '0.6', filter: 'alpha(opacity=60)' }}
+        ></img>
+        <Paper
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            padding: '10px',
+            transform: 'translate(-50%, -50%)',
+            opacity: '0.8',
+            filter: 'alpha(opacity=80)',
+            backgroundColor: 'white',
+          }}
+        >
+          <h3>{`${keyword[message[2]]}에 관심이있는 ${[message[1]]}대${
+            keyword[message[0]]
+          }성분은 ${keyword[Background.city]} 에
+              갑니다`}</h3>
+        </Paper>
         <Wordcloud words={Background} />
       </div>
     );

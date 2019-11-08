@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import { Paper } from '@material-ui/core/';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import img from './../../../Assets/images/loading.jpeg';
@@ -60,8 +60,8 @@ export default function RandomUserData(props) {
                 {data.city}
               </Typography>
               <Typography component="p">
-                `저희 데이터에 따르면 ${data.keyword}에 관심이있는 ${data.age}$
-                {data.gender}는 ${data.city} 에 갑니다`
+                `저희 데이터에 따르면 {data.keyword}에 관심이있는 {data.age}
+                {data.gender}는 {data.city} 에 갑니다`
               </Typography>
             </div>
           )}

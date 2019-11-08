@@ -47,7 +47,7 @@ export default function Buttons(props) {
     setGender(Number(event.target.value) || '');
   };
   const ChangeAge = event => {
-    setAge(Number(event) || '');
+    setAge(Number(event.target.value) || '');
   };
   const ChangeKeyword = event => {
     setkeyWord(Number(event.target.value) || '');
@@ -68,11 +68,11 @@ export default function Buttons(props) {
       str += key + '=' + data[key] + '&';
     }
     str = str.slice(0, -1);
-
     fetch('http://3.15.20.155:5000/trends' + str)
       .then(res => res.json())
       .then(res => {
         props.controlBackground(res);
+        props.controlMessage([gender, age, keyWord]);
       });
   };
 
