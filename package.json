@@ -15,6 +15,7 @@
     "less-loader": "^5.0.0",
     "material-ui": "^1.0.0-beta.47",
     "node-fetch": "^2.6.0",
+    "parse": "^2.9.0",
     "react": "^16.11.0",
     "react-app-rewired": "^2.1.4",
     "react-chartjs-2": "^2.8.0",

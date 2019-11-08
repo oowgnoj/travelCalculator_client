@@ -9,14 +9,7 @@ import Trends from './Components/Trends';
 import Login from './Components/login/login';
 import Register from './Components/register/register';
 import About from './Components/Layout/about';
-
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import Mypage from './Components/mypage/';
 
 const { Footer } = Layout;
 
@@ -30,6 +23,7 @@ ReactDOM.render(
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/about" component={About} />
+      <Route exact path="/mypage" component={Mypage} />
     </Switch>
     <div style={{ width: 'auto' }}>
       <Footer

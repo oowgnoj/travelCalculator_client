@@ -4,7 +4,6 @@ import RandomUserData from './randomUserData';
 import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import LoadingBar from './loadingbar';
-
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -13,15 +12,19 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
-
 class Loading extends Component {
   constructor(props) {
     super(props);
     this.state = {
       timer: false,
+      datas: [],
     };
   }
   componentDidMount() {
+    fetch('http://3.15.20.155:5000/loading')
+      .then(res => res.json())
+      .then(datas => this.setState({ datas }))
+      .catch(err => console.log(err, 'londing-----error'));
     this.timer = setTimeout(
       () => this.setState(timer => ({ timer: true })),
       3000,
@@ -41,7 +44,7 @@ class Loading extends Component {
     } else {
       return (
         <div>
-          <RandomUserData />
+          <RandomUserData datas={this.state.datas} />
           <LoadingBar />
         </div>
       );

@@ -2,19 +2,14 @@ import React, { Component } from 'react';
 import { Button, Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
 import { Link } from 'react-router-dom';
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
-import Typography from '@material-ui/core/Typography';
 
 //component
 import MainTypo from './Components/Layout/Typography/main';
 //options
 import citys from './Assets/menu/city';
 import keyWords from './Assets/menu/key-words';
-
 //image
 import word from './Assets/main/1.jpeg';
-
-//material
-
 const { Option } = Select;
 
 export default class App extends Component {
@@ -29,9 +24,8 @@ export default class App extends Component {
       ageRange: '',
       keyWord: '',
       code: '',
-
       recommendation: '',
-
+      auth: false,
     };
     this.image = [];
     this.image.push(
@@ -41,10 +35,10 @@ export default class App extends Component {
     );
   }
 
+  //Fetch Random Data
   componentDidMount() {
     fetch(`http://3.15.20.155:5000/loading`)
       .then(res => res.json())
-      .then(res => console.log('doing'))
       .then(res =>
         this.setState({
           recommendation: res,
@@ -81,10 +75,7 @@ export default class App extends Component {
   };
 
   onChangeKey = value => {
-
-
     this.setState({ keyWord: value[1] });
-
   };
 
   componenWillMount() {
@@ -92,9 +83,6 @@ export default class App extends Component {
     this.keyWords = keyWords;
   }
   render() {
-
-    const { test } = this.state;
-
     const {
       cityName,
       cityCode,
@@ -126,11 +114,12 @@ export default class App extends Component {
       marginBottom: '8px',
     };
     const cityStyle = {
-      width: '90%',
+      width: '100%',
       marginBottom: '8px',
     };
     const halfStyle = {
       width: '50%',
+      height: '10%',
       marginBottom: '8px',
     };
     return (
@@ -164,7 +153,7 @@ export default class App extends Component {
           style={halfStyle}
           onChange={this.onChangeAge1}
           size="large"
-          placeholder="Please select 성별"
+          placeholder="select gender"
         >
           <Option value="2">남</Option>
           <Option value="1">여</Option>
@@ -174,7 +163,7 @@ export default class App extends Component {
           style={halfStyle}
           onChange={this.onChangeAge2}
           size="large"
-          placeholder="Please select 연령대"
+          placeholder="select age"
         >
           <Option value="10">10대</Option>
           <Option value="20">20대</Option>
@@ -187,15 +176,12 @@ export default class App extends Component {
           options={keyWords}
           onChange={this.onChangeKey}
           size="large"
-          placeholder="Please select 키워드"
+          placeholder="please select what you like"
         />
         <br />
         <Button
           style={{
-
             backgroundColor: '#455a64',
-
-
             color: 'white',
             fontSize: '17px',
             alignItems: 'center',

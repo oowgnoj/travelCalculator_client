@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Icon, Input, Button, Alert } from 'antd';
 
 import './login.css';
 
@@ -10,7 +10,6 @@ class NormalLoginForm extends Component {
 
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
         let url = 'http://3.15.20.155:5000/signin';
         fetch(url, {
           method: 'POST',
@@ -24,9 +23,12 @@ class NormalLoginForm extends Component {
           })
           .then(json => {
             console.log(json);
+            // sessionStorage.setItem('userid', json.userid);
+            // sessionStorage.setItem('keyword', json.keyword);
+            // sessionStorage.setItem('gender', json.gender);
+            // sessionStorage.setItem('gender', json.age);
             this.props.history.push('/');
             return json;
-            // add message
           })
           .catch(err => console.log(err, 'login-error'));
       }
