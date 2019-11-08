@@ -19,7 +19,7 @@ export default function Types() {
         display="block"
         style={{ fontSize: '30px', marginLeft: '30px', color: 'black' }}
         component={Link}
-        to="/trends"
+        to="/"
         gutterBottom
       >
         out your door <br />

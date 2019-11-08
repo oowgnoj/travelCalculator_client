@@ -9,8 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+
 import User from './drawers_user';
 import CardTravelIcon from '@material-ui/icons/CardTravel';
 import { Link } from 'react-router-dom';
@@ -52,34 +51,23 @@ export default function TemporaryDrawer() {
       <List>
         <ListItem button key="calculate" component={Link} to="/">
           <ListItemIcon>
-            <AirplanemodeActiveIcon fontSize="medium" />
+            <AirplanemodeActiveIcon fontSize="default" />
           </ListItemIcon>
           <ListItemText primary="calculate" />
         </ListItem>
         <ListItem button key="Trends" component={Link} to="/trends">
           <ListItemIcon>
-            <TrendingUpIcon fontSize="medium" />
+            <TrendingUpIcon fontSize="default" />
           </ListItemIcon>
           <ListItemText primary="trends" />
         </ListItem>
         <ListItem button key="About" component={Link} to="/about">
           <ListItemIcon>
-            <CardTravelIcon fontSize="medium" />
+            <CardTravelIcon fontSize="default" />
           </ListItemIcon>
           <ListItemText primary="About" />
         </ListItem>
       </List>
-      <Divider />
-    </div>
-  );
-
-  const fullList = side => (
-    <div
-      className={classes.fullList}
-      role="presentation"
-      onClick={toggleDrawer(side, false)}
-      onKeyDown={toggleDrawer(side, false)}
-    >
       <Divider />
     </div>
   );

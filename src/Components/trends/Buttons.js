@@ -68,6 +68,7 @@ export default function Buttons(props) {
       str += key + '=' + data[key] + '&';
     }
     str = str.slice(0, -1);
+
     fetch('http://3.15.20.155:5000/trends' + str)
       .then(res => res.json())
       .then(res => {

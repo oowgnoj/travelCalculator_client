@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -15,10 +15,17 @@ const useStyles = makeStyles(theme => ({
     width: '60%',
   },
 }));
-
-export default function RandomUserData() {
+export default function RandomUserData(props) {
   const classes = useStyles();
-
+  const [data, setData] = useState(props.datas[0]);
+  let i = 0;
+  useEffect(() => {
+    setTimeout(() => {
+      i++;
+      i = i % 10;
+      setData(props.datas[i]);
+    }, 3000);
+  }, [data]);
   return (
     <div>
       <img
@@ -27,7 +34,7 @@ export default function RandomUserData() {
         height={'100%'}
         style={{ display: 'inline' }}
       />
-
+      {console.log(data)}
       <Grid
         container
         spacing={0}
@@ -47,13 +54,17 @@ export default function RandomUserData() {
             filter: 'alpha(opacity=80)',
           }}
         >
-          <Typography variant="h5" component="h3">
-            LONDON.
-          </Typography>
-          <Typography component="p">
-            저희 데이터에 따르면 75%의 휴양지에 관심이있는 여행자는 LONDON 에
-            갑니다.
-          </Typography>
+          {data && (
+            <div>
+              <Typography variant="h5" component="h3">
+                {data.city}
+              </Typography>
+              <Typography component="p">
+                `저희 데이터에 따르면 ${data.keyword}에 관심이있는 ${data.age}$
+                {data.gender}는 ${data.city} 에 갑니다`
+              </Typography>
+            </div>
+          )}
         </Paper>
         <Bar />
         <Grid item xs={3}></Grid>
