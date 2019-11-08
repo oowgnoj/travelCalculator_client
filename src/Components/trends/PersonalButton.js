@@ -37,12 +37,12 @@ export default function PersonalButton(props) {
   };
 
   const handleAge = e => {
-    // alert(e.currentTarget.value);
-    props.ChangeAge(e.currentTarget.value);
+    props.ChangeAge(e);
+    setAge(e.target.value);
   };
   const handleGender = e => {
-    // alert(e.currentTarget.value);
     props.ChangeGender(e);
+    setGender(e.target.value);
   };
 
   return (
@@ -82,9 +82,9 @@ export default function PersonalButton(props) {
                 onChange={handleGender}
                 input={<Input />}
               >
-                <MenuItem value="">
+                {/* <MenuItem value="">
                   <em>None</em>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem value={1}>여자</MenuItem>
                 <MenuItem value={2}>남자</MenuItem>
               </Select>
