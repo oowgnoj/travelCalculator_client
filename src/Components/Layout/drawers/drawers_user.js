@@ -11,9 +11,10 @@ import Paper from '@material-ui/core/Paper';
 import FaceIcon from '@material-ui/icons/Face';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import LogoutButton from './../login/logout';
-import MypageButton from './../login/mypage_button';
 import Grid from '@material-ui/core/Grid';
+
+import LogoutButton from './../../login/logout';
+import MypageButton from './../../login/mypage_button';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,9 +34,6 @@ const useStyles = makeStyles(theme => ({
 export default function UserInfo() {
   const classes = useStyles();
   var userId = sessionStorage.getItem('userid');
-  var age = sessionStorage.getItem('age');
-  var gender = sessionStorage.getItem('gender');
-  var keyword = sessionStorage.getItem('keyword');
 
   if (!userId) {
     return (

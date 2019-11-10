@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Form, Icon, Input, Button, Alert } from 'antd';
+import { Form, Icon, Input } from 'antd';
 import Button_material from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import './login.css';

@@ -4,15 +4,6 @@ import Hotel from './Hotel';
 import Restaurant from './Restaurant';
 import { Divider } from 'antd';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-  h6: {
-    width: '100%',
-    maxWidth: 500,
-    textAlign: 'center',
-  },
-});
 
 function DetailPage(props) {
   var flight = props.Data.details.flight;

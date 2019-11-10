@@ -1,12 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Grid from './userGrid';
 import BackgroundPaper from './userCardBackground';
 
-import fakeData from './titleData';
+import fakeData from './dataPlacehold';
 
 const alterForm = function(data) {
   var gridListData = [];
-  console.log(data);
 
   for (let i = 0; i < data.histories.length; i++) {
     let obj = {};

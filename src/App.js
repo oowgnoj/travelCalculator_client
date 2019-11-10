@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
+import { Cascader, DatePicker, Select, Carousel } from 'antd';
 import { Link } from 'react-router-dom';
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import Button from '@material-ui/core/Button';
 
 //component
-import MainTypo from './Components/Layout/Typography/main';
+import MainTypo from './Components/layout/Typography/main';
 //options
 import citys from './Assets/menu/city';
 import keyWords from './Assets/menu/key-words';
 //image
-import word from './Assets/main/1.jpeg';
+import word from './Assets/main/landing_main.jpeg';
 const { Option } = Select;
 
 export default class App extends Component {

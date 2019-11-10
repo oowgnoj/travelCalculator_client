@@ -1,6 +1,6 @@
-import MenuIcon from '@material-ui/icons/Menu';
-
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
@@ -9,12 +9,13 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-
-import User from './drawers_user';
 import CardTravelIcon from '@material-ui/icons/CardTravel';
-import { Link } from 'react-router-dom';
 import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import MenuIcon from '@material-ui/icons/Menu';
+
+import User from './drawers_user';
+
 const useStyles = makeStyles({
   list: {
     width: 250,

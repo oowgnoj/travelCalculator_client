@@ -2,8 +2,6 @@ import React from 'react';
 
 const Sentence = props => {
   var getArrival = props.Data.details.flight[0].itineraries[0].segments.length;
-  var departure =
-    props.Data.details.flight[0].itineraries[0].segments[0].departure.city;
   var departureDate =
     props.Data.details.flight[0].itineraries[0].segments[0].departure.date;
   var arrivalCity =
@@ -12,8 +10,8 @@ const Sentence = props => {
   var arrivalDate =
     props.Data.details.flight[0].itineraries[0].segments[getArrival - 1].arrival
       .date;
-  var arrivalDate = arrivalDate.slice(0, arrivalDate.length - 9);
-  var departureDate = departureDate.slice(0, departureDate.length - 9);
+  arrivalDate = arrivalDate.slice(0, arrivalDate.length - 9);
+  departureDate = departureDate.slice(0, departureDate.length - 9);
 
   var roundedPrice = props.Data.estimate.total.toString();
   roundedPrice = roundedPrice.slice(0, roundedPrice.length - 4);

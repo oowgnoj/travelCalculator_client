@@ -18,7 +18,6 @@ export default function ImgMediaCard(props) {
   const classes = useStyles();
   var logo = props.flight.logo.slice(0, props.flight.logo.length - 1);
   var getArrival = props.flight.itineraries[0].segments.length;
-  var duration = props.flight.itineraries[0].duration.slice(2);
   var departure = props.flight.itineraries[0].segments[0].departure.city;
   var departure_date = props.flight.itineraries[0].segments[0].departure.date;
   var arrival =

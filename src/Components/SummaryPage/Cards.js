@@ -7,19 +7,13 @@ const menuIcon = require('../../../src/Assets/icon/menu.png');
 
 function Cards(props) {
   var flight = props.Data.details.flight[0];
-  var hotel = props.Data.details.hotel;
-  var restaurant = props.Data.details.restaurant;
   var estimate = props.Data.estimate;
   var day = props.Data.day;
   var dayExtended = `${day}박 ${day + 1}일`;
 
   //flight information
   var getArrival = flight.itineraries[0].segments.length;
-  var duration = flight.itineraries[0].duration;
-  var departure = flight.itineraries[0].segments[0].departure.city;
-  var departure_date = flight.itineraries[0].segments[0].departure.date;
   var arrival = flight.itineraries[0].segments[getArrival - 1].arrival.city;
-  var price = flight.price;
 
   const listData = [
     {

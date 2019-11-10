@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Col, Row, Icon, Button } from 'antd';
+import { Col, Button } from 'antd';
 import Cards from './Cards';
-import DetailPage from './DetailPage';
+import DetailPage from './detailpage';
 import Sentence from './Sentence';
-import Loading from '../../Components/Layout/loading/loading';
+import Loading from '../../Components/layout/loading';
 
 class SummaryPage extends Component {
   constructor(props) {
