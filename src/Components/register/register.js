@@ -151,7 +151,7 @@ class NormalLoginForm extends Component {
               style={{ width: '100%' }}
               className="login-form-button"
             >
-              Log in
+              sign up
             </Button>
           </Form.Item>
         </Form>

@@ -31,6 +31,7 @@ export default function Trends() {
   };
   const onBackground = {
     minHeight: '100vh',
+    maxwidth: '100%',
     backgroundImage:
       'url(https://images.unsplash.com/photo-1416339212457-ef9ffadc2903?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)',
     backgroundRepeat: 'no-repeat',
@@ -90,10 +91,12 @@ export default function Trends() {
             backgroundColor: 'white',
           }}
         >
-          <h3>{`${keyword[message[2]]}에 관심이있는 ${[message[1]]}대${
-            keyword[message[0]]
-          }성분은 ${keyword[Background.city]} 에
-              갑니다`}</h3>
+          <h3>
+            {console.log(message)}
+            {keyword[message[2]]}에 관심이 있는 {[message[1]]}대
+            {keyword[message[0]]}성이 가장 많이 검색한 도시는{' '}
+            {keyword[Background.city]}입니다 ! ({[message[3]]})
+          </h3>
         </Paper>
         <Wordcloud words={Background} />
       </div>

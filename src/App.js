@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
+import { Cascader, DatePicker, Select, Carousel, Radio } from 'antd';
 import { Link } from 'react-router-dom';
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import Button from '@material-ui/core/Button';
 
 //component
 import MainTypo from './Components/Layout/Typography/main';
@@ -179,6 +180,7 @@ export default class App extends Component {
           placeholder="please select what you like"
         />
         <br />
+
         <Button
           style={{
             backgroundColor: '#455a64',
@@ -187,6 +189,7 @@ export default class App extends Component {
             alignItems: 'center',
             borderColor: '#455a64',
             height: '55px',
+            width: '100%',
           }}
           block
         >
@@ -194,6 +197,7 @@ export default class App extends Component {
             <FlightTakeoffIcon fontSize="Large"></FlightTakeoffIcon>
           </Link>
         </Button>
+
         <Carousel className="images" style={carouselStyle} autoplay>
           {this.image}
         </Carousel>

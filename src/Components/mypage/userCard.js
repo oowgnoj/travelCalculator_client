@@ -6,9 +6,11 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
   card: {
-    width: 150,
+    width: 300,
+    height: 150,
     backgroundColor: 'white',
   },
   bullet: {
@@ -38,10 +40,10 @@ export default function SimpleCard() {
         >
           <WbSunnyIcon fontsize="Large" />
         </Typography>
-        <Typography variant="h5" component="h2"></Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          oowgonj
+        <Typography variant="h5" component="h2">
+          {sessionStorage.getItem('userid')}
         </Typography>
+        <Typography className={classes.pos} color="textSecondary"></Typography>
         <Typography variant="body2" component="p">
           well meaning and kindly.
           <br />

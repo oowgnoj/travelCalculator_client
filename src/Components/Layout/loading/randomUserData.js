@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import img from './../../../Assets/images/loading.jpeg';
 import Bar from './loadingbar';
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -60,8 +61,9 @@ export default function RandomUserData(props) {
                 {data.city}
               </Typography>
               <Typography component="p">
-                `저희 데이터에 따르면 {data.keyword}에 관심이있는 {data.age}
-                {data.gender}는 {data.city} 에 갑니다`
+                여행 계산기를 이용하는 {data.age} {data.gender} 중{' '}
+                {data.keyword}에 관심있는 여행자들이 가장 많이 검색한 도시는{' '}
+                {data.city}입니다.
               </Typography>
             </div>
           )}

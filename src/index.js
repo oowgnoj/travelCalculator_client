@@ -9,7 +9,7 @@ import Trends from './Components/trends';
 import Login from './Components/login/login';
 import Register from './Components/register/register';
 import About from './Components/Layout/about';
-import Mypage from './Components/mypage/';
+import Mypage from './Components/mypage/index.js';
 
 const { Footer } = Layout;
 
@@ -21,7 +21,9 @@ ReactDOM.render(
       <Route exact path="/summary" component={SummaryPage} />
       <Route exact path="/trends" component={Trends} />
       <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} />
+      <Route exact path="/logout" component={App} />
+
+      <Route exact path="/signup" component={Register} />
       <Route exact path="/about" component={About} />
       <Route exact path="/mypage" component={Mypage} />
     </Switch>

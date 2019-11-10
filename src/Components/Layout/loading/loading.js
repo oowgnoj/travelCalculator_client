@@ -24,7 +24,7 @@ class Loading extends Component {
     fetch('http://3.15.20.155:5000/loading')
       .then(res => res.json())
       .then(datas => this.setState({ datas }))
-      .catch(err => console.log(err, 'londing-----error'));
+      .catch(err => console.log(err, 'fetch err'));
     this.timer = setTimeout(
       () => this.setState(timer => ({ timer: true })),
       3000,

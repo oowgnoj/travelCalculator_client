@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Button from '@material-ui/core/Button';
-
+import { Link } from 'react-router-dom';
 class Logout extends Component {
   constructor(props) {
     super(props);
@@ -12,14 +12,18 @@ class Logout extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then(res => sessionStorage.clear());
+      credentials: 'include',
+      redirect: 'follow',
+    }).then(res => {
+      sessionStorage.clear();
+    });
   }
   render() {
     return (
       <div>
         <Button
           variant="contained"
-          color="primary"
+          color="secondry"
           onClick={this.logoutOnclick}
         >
           LOGOUT

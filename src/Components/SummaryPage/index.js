@@ -27,6 +27,9 @@ class SummaryPage extends Component {
       str += key + '=' + data[key] + '&';
     }
     str = str.slice(0, -1);
+    str += `&name=${
+      sessionStorage.getItem('userid') ? sessionStorage.getItem('userid') : 0
+    }`;
 
     fetch(`http://3.15.20.155:5000/calculate` + str)
       .then(res => res.json())

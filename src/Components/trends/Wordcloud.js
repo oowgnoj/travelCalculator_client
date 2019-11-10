@@ -63,19 +63,3 @@ function WordCloud(props) {
 }
 
 export default WordCloud;
-
-// class WordCloud extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-//   render() {
-//     console.log(this.props.data);
-//     return (
-//       <div>
-//         <ReactWordcloud options={options} words={this.props.data.spot} />
-//         <ReactWordcloud options={options} words={this.props.data.word} />
-//       </div>
-//     );
-//   }
-// }
-// export default WordCloud;

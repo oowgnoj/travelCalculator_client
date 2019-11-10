@@ -12,6 +12,8 @@ import FaceIcon from '@material-ui/icons/Face';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import LogoutButton from './../login/logout';
+import MypageButton from './../login/mypage_button';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,15 +32,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function UserInfo() {
   const classes = useStyles();
-  // var userId = sessionStorage.getItem('userid');
-  // var age = sessionStorage.getItem('age');
-  // var gender = sessionStorage.getItem('gender');
-  // var keyword = sessionStorage.getItem('keyword');
-
-  var userId = 'hi';
-  var age = 'a';
-  var gender = 'a';
-  var keyword = 'a';
+  var userId = sessionStorage.getItem('userid');
+  var age = sessionStorage.getItem('age');
+  var gender = sessionStorage.getItem('gender');
+  var keyword = sessionStorage.getItem('keyword');
 
   if (!userId) {
     return (
@@ -85,15 +82,13 @@ export default function UserInfo() {
                     variant="body2"
                     className={classes.inline}
                     color="textPrimary"
-                  >
-                    {userId}
-                  </Typography>
-                  {keyword}
-                  {gender}
-                  {age}
+                  ></Typography>
+                  Like all great travelers,
                 </React.Fragment>
               }
             />
+            <MypageButton />
+            <Grid sm={1} />
             <LogoutButton />
           </ListItem>
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import { Form, Icon, Input, Button, Alert } from 'antd';
-
+import Button_material from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 import './login.css';
 
 class NormalLoginForm extends Component {
@@ -17,16 +18,16 @@ class NormalLoginForm extends Component {
           headers: {
             'Content-Type': 'application/json',
           },
+          credentials: 'include',
         })
           .then(response => {
             return response.json();
           })
           .then(json => {
-            console.log(json);
-            // sessionStorage.setItem('userid', json.userid);
-            // sessionStorage.setItem('keyword', json.keyword);
-            // sessionStorage.setItem('gender', json.gender);
-            // sessionStorage.setItem('gender', json.age);
+            sessionStorage.setItem('userid', json.userid);
+            sessionStorage.setItem('keyword', json.keyword);
+            sessionStorage.setItem('gender', json.gender);
+            sessionStorage.setItem('gender', json.age);
             this.props.history.push('/');
             return json;
           })
@@ -76,14 +77,26 @@ class NormalLoginForm extends Component {
           </Form.Item>
 
           <Form.Item>
-            <Button
+            <Button_material
               type="primary"
               htmlType="submit"
               style={{ width: '100%' }}
               className="login-form-button"
             >
               Log in
-            </Button>
+            </Button_material>
+
+            <React.Fragment>
+              <Button_material
+                variant="contained"
+                color="primary"
+                component={Link}
+                to="/signup"
+                style={{ width: '100%' }}
+              >
+                signup
+              </Button_material>{' '}
+            </React.Fragment>
           </Form.Item>
         </Form>
       </div>

@@ -33,7 +33,7 @@ function Cards(props) {
     {
       title: 'hotel',
       description: '주요 호텔의 객실당 1박 평균 요금 입니다.',
-      content: `${arrival}의 1박 평균 요금은  is ₩${Math.floor(
+      content: `${arrival}의 1박 평균 요금은  ₩${Math.floor(
         estimate.hotel / 3,
       )}원 입니다. ${dayExtended} 일정의 예상 숙박료는 ₩${
         estimate.hotel

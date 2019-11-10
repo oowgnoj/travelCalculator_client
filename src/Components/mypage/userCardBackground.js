@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
     backgroundColor: '#9bc1c9',
-    height: '300px',
+    height: '200px',
     alignContent: 'center',
     textAlign: 'center',
   },
